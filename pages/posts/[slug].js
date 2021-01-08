@@ -9,14 +9,24 @@ function Post({ post, morePost, preview }) {
     return <ErrorPage statusCode={404} />
   }
 
-  return <div>{JSON.stringify(post)}</div>
+  return (
+    <>
+      <h1>{post.title}</h1>
+      <hr/>
+      {JSON.stringify(post.author)}
+      <hr/>
+      <div dangerouslySetInnerHTML={{ __html: post.content }}/>
+    </>
+  )
 }
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.slug, [
     'slug',
     'title',
-    'content'
+    'content',
+    'author',
+    'coverImage'
   ])
   const content = await markdownToHtml(post.content || '')
 
