@@ -1,0 +1,40 @@
+{
+  "name": "doguskysilva",
+  "version": "1.0.0",
+  "description": "#### I'm a Full-Stack Developer working in São Paulo, Brazil",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/doguskysilva/doguskysilva.git"
+  },
+  "keywords": [
+    "blog"
+  ],
+  "author": "Douglas Silva",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/doguskysilva/doguskysilva/issues"
+  },
+  "homepage": "https://github.com/doguskysilva/doguskysilva#readme",
+  "dependencies": {
+    "classnames": "2.2.6",
+    "date-fns": "2.16.1",
+    "gray-matter": "4.0.2",
+    "next": "10.0.5",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "remark": "13.0.0",
+    "remark-html": "13.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "10.0.4",
+    "postcss": "8.1.10",
+    "postcss-preset-env": "^6.7.0",
+    "tailwindcss": "2.0.1"
+  }
+}
