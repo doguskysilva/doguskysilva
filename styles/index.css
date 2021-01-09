@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
+
+body {
+    @apply transition ease-in duration-300;
+}
+  
+body {
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+}
+
 @tailwind utilities;
