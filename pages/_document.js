@@ -1,12 +1,17 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-
+import Header from './../_components/header'
 export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head />
-        <body>
-          <Main />
+        <body className="bg-gray-900 text-white">
+          <div className="w-full h-screen grid grid-cols-1 md:grid-cols-3 gap-0">
+            <Header/>
+            <main className="cols-span-1 md:col-span-2 overflow-y-auto md:mt-0 p-4 pt-5">
+              <Main/>
+            </main>
+          </div>
           <NextScript />
         </body>
       </Html>
