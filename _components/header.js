@@ -4,7 +4,7 @@ const menuOptions = [
   { "link": "/blog", "content": "Blog" },
   { "link": "/projects", "content": "Projetos" },
   { "link": "/bookshelf", "content": "Estante" },
-  { "link": "/about-me", "content": "Eu" },
+  { "link": "/me", "content": "Eu" },
 ]
 
 const Header = () => <>
@@ -35,7 +35,7 @@ const Header = () => <>
             Douglas <span className="text-gray-400">Silva</span>
           </h1>
           <p className="block text-base text-gray-300 text-justify py-3">
-            Desenvolvedor, escrevendo sobre programação e tentando algumas bandejas.
+            Desenvolvedor e nas horas escrevendo sobre programação.
             </p>
         </div>
       </div>
