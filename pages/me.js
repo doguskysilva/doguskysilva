@@ -16,7 +16,7 @@ function Me() {
             alt="Sou eu"
           />
         </header>
-        <section className="text-lg text-justify">
+        <section className="text-justify">
           <h2 className="font-bold text-2xl mt-6 mb-2">Você não sabe nada de mim...</h2>
           <p>
             Olá, eu sou o Douglas, nasci em Ariquemes uma cidade no interior do estado de Rondônia. Atualmente moro em São Paulo, trabalho com desenvolvimento de software no LuizaLabs e curso Engenharia da Computação na <a href="https://www.fiap.com.br" className="font-semibold hover:underline" rel="noreferrer" target="_blank">FIAP</a>

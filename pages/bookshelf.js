@@ -44,7 +44,9 @@ function BookShelf() {
               </a>
             </Link>
           </h2>
-          { technicalBooks().map(book => <CardBook book={book}></CardBook>) }
+          <div className="py-4">
+            { technicalBooks().map(book => <CardBook book={book}></CardBook>) }
+          </div>
         </section>
 
         <section id="others_books" className="mt-4">
@@ -55,7 +57,9 @@ function BookShelf() {
               </a>
             </Link>
           </h2>
-          { nonTechnicalBooks().map(book => <CardBook book={book}></CardBook>) }
+          <div className="py-4">
+            { nonTechnicalBooks().map(book => <CardBook book={book}></CardBook>) }
+          </div>
         </section>
       </article>
     </>

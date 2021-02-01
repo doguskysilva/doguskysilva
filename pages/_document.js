@@ -5,10 +5,10 @@ export default class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head />
-        <body className="bg-gray-900 text-white">
+        <body className="bg-blueGray-800 text-white">
           <div className="w-full h-screen grid grid-cols-1 md:grid-cols-3 gap-0">
             <Header/>
-            <main className="cols-span-1 md:col-span-2 overflow-y-auto md:mt-0 p-4 pt-5">
+            <main className="cols-span-1 md:col-span-2 overflow-y-auto md:mt-0 p-4 pt-5 text-base">
               <Main/>
             </main>
           </div>
