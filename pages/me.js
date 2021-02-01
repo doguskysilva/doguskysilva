@@ -1,12 +1,11 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import Link from 'next/link'
 
 function Me() {  
   return (
     <>
       <Head>
-        <title>E Agora Eu | dogusky.tech</title>
+        <title>E Agora Eu | doguskysilva</title>
       </Head>
       <article className="mt-2 md:mt-10 mb-8 lg:mx-12">
         <header className="mb-2 text-center">
@@ -20,12 +19,12 @@ function Me() {
         <section className="text-lg text-justify">
           <h2 className="font-bold text-2xl mt-6 mb-2">Você não sabe nada de mim...</h2>
           <p>
-          Olá, eu sou o Douglas, nasci em Ariquemes uma cidade no interior do estado de Rondônia. Atualmente moro em São Paulo, trabalho com desenvolvimento de software no LuizaLabs e curso Engenharia da Computação na <a href="https://www.fiap.com.br" className="font-semibold hover:underline" rel="noreferrer" target="_blank">FIAP</a>
+            Olá, eu sou o Douglas, nasci em Ariquemes uma cidade no interior do estado de Rondônia. Atualmente moro em São Paulo, trabalho com desenvolvimento de software no LuizaLabs e curso Engenharia da Computação na <a href="https://www.fiap.com.br" className="font-semibold hover:underline" rel="noreferrer" target="_blank">FIAP</a>
           </p>
 
           <h2 className="font-bold text-2xl mt-6 mb-2">Quando te encontrei...</h2>
           <p className="mt-4">
-          Acabei descobrindo o universo da programação em uma aula no Senai em 2011. Vi um código sendo escrito pelo professor em Object Pascal e depois de automagicamente um <b>jogo da velha</b>. Depois disso nem prestava mais atenção nas aulas de redes, e lá estava eu assisinto vídeo aulas e praticando desenvolvimento web.
+            Acabei descobrindo o universo da programação em uma aula no Senai em 2011. Vi um código sendo escrito pelo professor em Object Pascal e depois de automagicamente um <b>jogo da velha</b>. Depois disso nem prestava mais atenção nas aulas de redes, e lá estava eu assisinto vídeo aulas e praticando desenvolvimento web.
           </p>
     
           <h2 className="font-bold text-2xl mt-6 mb-2">Maravilha...</h2>
