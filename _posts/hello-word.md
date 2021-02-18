@@ -1,6 +1,6 @@
 ---
 title: 'My first blog'
-slug: hello-world,
+slug: hello-world
 excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.'
 coverImage: '/assets/blog/preview/cover.jpg'
 date: '2020-03-16T05:35:07.322Z'
@@ -9,6 +9,11 @@ author:
   picture: '/assets/blog/authors/douglas.jpeg'
 ogImage:
   url: '/assets/blog/preview/cover.jpg'
+tags:
+  - blog
+  - laravel
+  - js
+  - python
 ---
 
 Pellentesque condimentum velit vel justo rutrum, sit amet commodo diam tincidunt. Nunc diam massa, interdum ut aliquet at, scelerisque ac ex. Integer cursus sem ac pretium posuere. Ut at odio nulla. Phasellus nec ante luctus, egestas dui id, maximus dui. In aliquam elit sit amet sollicitudin luctus. Nunc nec leo quis ante vestibulum egestas. In dignissim libero vitae congue bibendum. Sed iaculis eros a leo pellentesque, et ultrices leo malesuada. Nullam ultrices rutrum accumsan. Pellentesque tempus sapien et vestibulum placerat.
