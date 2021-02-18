@@ -9,7 +9,6 @@ author:
 ogImage:
   url: '/assets/blog/preview/cover.jpg'
 tags:
-  - blog
   - laravel
   - haskell
   - python

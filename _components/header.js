@@ -2,7 +2,7 @@ import Link from 'next/link'
 
 const menuOptions = [
   { "link": "/blog", "content": "Blog" },
-  { "link": "/projects", "content": "Projetos" },
+  { "link": "/tags", "content": "Tags" },
   { "link": "/bookshelf", "content": "Estante" },
   { "link": "/me", "content": "Eu" },
 ]

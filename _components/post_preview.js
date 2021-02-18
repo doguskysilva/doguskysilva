@@ -1,5 +1,6 @@
 import Link from "next/link";
 import tinytime from "tinytime"
+import Tag from "./tag";
 
 
 const postDateTemplate = tinytime('{MM} {DD}, {YYYY}')
@@ -22,8 +23,9 @@ const PostPreview = ({ post }) => (
               </time>
             </dd>
           </dl>
+          <span className="mr-3">-</span>
           {post.tags.map((tag) => (
-            <span className="mr-5 text-lightBlue-600">{tag}</span>
+            <Tag tag={tag}></Tag>
           ))}
         </div>
       </div>
