@@ -18,7 +18,7 @@ const Header = () => <>
                 <li className="lowercase font-light" key={option.link}>
                   <Link href={option.link}>
                     <a
-                      className="inline-block rounded py-1 px-3 font-medium hover:bg-blueGray-500 transition duration-500 ease-in-out">
+                      className="inline-block py-1 px-3 font-medium hover:bg-blueGray-500 transition duration-500 ease-in-out">
                       {option.content}
                     </a>
                   </Link>

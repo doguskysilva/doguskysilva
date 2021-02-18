@@ -1,8 +1,5 @@
-import { react } from 'react'
-import Link from 'next/link'
-
 const CardBook = (props) => (
-  <div className="w-full lg:flex mb-4 shadow-md">
+  <div className="w-full lg:flex mb-4 border border-white">
     <div className="h-32 lg:h-auto lg:w-32 flex-none bg-cover text-center overflow-hidden">
       <a href={props.book.link}>
         <img src={props.book.cover} className="border-2 border-gray-900" />
