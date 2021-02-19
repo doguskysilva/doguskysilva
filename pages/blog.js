@@ -6,7 +6,7 @@ function Blog(props) {
   return (
     <>
       <Head>
-        <title>Posts | doguskysilva</title>
+        <title>Posts | dogusky.tech</title>
       </Head>
       <div className="-mt-6 px-6">
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">

@@ -4,7 +4,9 @@ export default class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
-        <Head />
+        <Head>
+          <link rel="shortcut icon" href="favicon.ico" />
+        </Head>
         <body className="bg-blueGray-800 text-white">
           <div className="w-full h-screen grid grid-cols-1 md:grid-cols-3 gap-0">
             <Header/>

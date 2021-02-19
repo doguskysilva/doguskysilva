@@ -8,7 +8,7 @@ const menuOptions = [
 ]
 
 const Header = () => <>
-  <nav className="cols-span-1 md:col-span-1 h-24 md:h-full bg-blueGray-600 md:p-6 text-white">
+  <nav className="cols-span-1 md:col-span-1 h-16 md:h-full bg-blueGray-600 p-3 md:p-6">
     <div className="flex flex-col h-full">
       <div className="flex-initial">
         <ul className="flex justify-between p-1">

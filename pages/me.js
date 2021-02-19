@@ -5,7 +5,7 @@ function Me() {
   return (
     <>
       <Head>
-        <title>E Agora Eu | doguskysilva</title>
+        <title>E Agora Eu | dogusky.techa</title>
       </Head>
       <article className="mt-2 md:mt-10 mb-8 lg:mx-12">
         <header className="mb-2 text-center">

@@ -6,11 +6,11 @@ function Tags({tags}) {
   return (
     <>
       <Head>
-        <title>Tags | doguskysilva</title>
+        <title>Tags | dogusky.tech</title>
       </Head>
-      <div className="px-6">
-        <div className="flex pt-28 flex-col items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:justify-center md:items-center md:divide-y-0 md:flex-row md:space-x-6 md:mt-24">
-          <div class="pt-6 pb-8 space-x-2 md:space-y-5">
+      <div className="px-6 bg-lightBlue-400">
+        <div className="flex flex-col md:flex-row items-start justify-start divide-y divide-gray-200 dark:divide-gray-700 md:justify-center md:items-center md:divide-y-0 md:space-x-6 mt-0 md:mt-24">
+          <div class="pt-6 pb-8 space-x-2">
             <h1 class="text-4xl text-center font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:leading-10 md:leading-14 md:border-r-2 md:px-6">
               Ando escrevendo sobre
             </h1>
