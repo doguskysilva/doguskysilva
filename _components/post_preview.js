@@ -29,7 +29,7 @@ const PostPreview = ({ post }) => (
           ))}
         </div>
       </div>
-      <div className="prose text-gray-500 max-w-none dark:text-gray-300">
+      <div className="prose text-gray-500 max-w-none dark:text-gray-300 text-justify">
         {post.excerpt}
       </div>
       <div class="text-base font-medium leading-6 pt-4">
