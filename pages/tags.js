@@ -1,10 +1,11 @@
 import Head from 'next/head'
 import Link from 'next/link'
 import { getAllTags } from '../lib/api'
+import Layout from '../_components/layout'
 
 function Tags({tags}) {
   return (
-    <>
+    <Layout>
       <Head>
         <title>Tags | dogusky.tech</title>
       </Head>
@@ -35,7 +36,7 @@ function Tags({tags}) {
           </div>
         </div>        
       </div>
-    </>
+    </Layout>
   )
 }
 
