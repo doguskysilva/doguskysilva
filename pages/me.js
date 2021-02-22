@@ -1,9 +1,10 @@
 import Head from 'next/head'
 import Link from 'next/link'
+import Layout from '../_components/layout'
 
 function Me() {  
   return (
-    <>
+    <Layout>
       <Head>
         <title>E Agora Eu | dogusky.techa</title>
       </Head>
@@ -52,7 +53,7 @@ function Me() {
           </p>
         </section>
       </article>
-    </>
+    </Layout>
   )
 }
 

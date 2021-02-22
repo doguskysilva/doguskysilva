@@ -1,5 +1,11 @@
+import Layout from "../_components/layout"
+
 function Index() {
-    return <div className="bg-red-500">Hello</div>
+    return <Layout>
+      <div>
+        Ola Mundo
+      </div>
+    </Layout>
 }
 
 export default Index

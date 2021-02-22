@@ -1,10 +1,11 @@
 import Head from 'next/head'
+import Layout from '../_components/layout'
 import PostPreview from '../_components/post_preview'
 import { getAllPosts } from './../lib/api'
 
 function Blog(props) {
   return (
-    <>
+    <Layout>
       <Head>
         <title>Posts | dogusky.tech</title>
       </Head>
@@ -16,7 +17,7 @@ function Blog(props) {
         )}
         </ul>
       </div>
-    </>
+    </Layout>
     )
 }
 

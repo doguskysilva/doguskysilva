@@ -5,6 +5,7 @@ import markdownToHtml from '../../lib/markdownToHtml'
 import tinytime from 'tinytime'
 import Tag from '../../_components/tag'
 import Head from 'next/head'
+import Layout from '../../_components/layout'
 
 const postDateTemplate = tinytime('{MM} {DD}, {YYYY}')
 
@@ -15,7 +16,7 @@ function Post({ post, morePost, preview }) {
   }
 
   return (
-    <>
+    <Layout>
       <Head>
         <title>{post.title} | dogusky.tech</title>
       </Head>
@@ -51,7 +52,7 @@ function Post({ post, morePost, preview }) {
           
         </footer>
       </section>
-    </>
+    </Layout>
   )
 }
 

@@ -3,6 +3,7 @@ import ErrorPage from 'next/error'
 import { getAllTags, getPostsByTag } from '../../lib/api'
 import Head from 'next/head'
 import PostPreview from '../../_components/post_preview'
+import Layout from '../../_components/layout'
 
 function TagPosts({ tag, posts }) {
   // const router = useRouter()
@@ -11,7 +12,7 @@ function TagPosts({ tag, posts }) {
   // }
 
   return (
-    <>
+    <Layout>
       <Head>
         <title>tag {tag} | dogusky.tech</title>
       </Head>
@@ -30,7 +31,7 @@ function TagPosts({ tag, posts }) {
           </ul>
         </div>
       </div>
-    </>
+    </Layout>
   )
 }
 

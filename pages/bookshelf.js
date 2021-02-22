@@ -2,12 +2,13 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { nonTechnicalBooks, technicalBooks } from '../_api/books'
 import CardBook from '../_components/card_book'
+import Layout from '../_components/layout'
 
 
 
 function BookShelf() {
   return (
-    <>
+    <Layout>
       <Head>
         <title>Minha Estante | doguskysilva</title>
       </Head>
@@ -62,7 +63,7 @@ function BookShelf() {
           </div>
         </section>
       </article>
-    </>
+    </Layout>
   )
 }
 
