@@ -1,15 +1,14 @@
 import Link from 'next/link'
+import Layout from '../_components/layout'
 
-function Tag({ tag }) {
-  return (
-    <>
-      <Link href={`/tags/${tag}`}>
-        <a className="mr-5 text-lightBlue-600 hover:bg-lightBlue-400 rounded-full px-2">
-          {tag}
-        </a>
-      </Link>
-    </>
-  )
-}
+const Tag = ({ tag }) => (
+  <Layout>
+    <Link href={`/tags/${tag}`}>
+      <a className="mr-5 text-lightBlue-600 hover:bg-lightBlue-400 rounded-full px-2">
+        {tag}
+      </a>
+    </Link>
+  </Layout>
+)
 
 export default Tag
