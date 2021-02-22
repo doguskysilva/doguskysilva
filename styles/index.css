@@ -33,4 +33,12 @@ h4 {
     @apply text-lg;
 }
 
+.index {
+    background-attachment: fixed;
+    background-image: url("/images/background.svg");
+    background-position: top right;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
 @tailwind utilities;

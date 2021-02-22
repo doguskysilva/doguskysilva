@@ -1,11 +1,19 @@
 import Layout from "../_components/layout"
 
-function Index() {
-    return <Layout>
-      <div>
-        Ola Mundo
+const Index = () => (
+  <Layout>
+    <div className='bg-gray-900 text-white h-full flex flex-wrap content-center p-10 index'>
+      <div className='lg:w-2/3'>
+        <h1 className='text-6xl'>Douglas Silva</h1>
+        <p className='text-xl my-8 text-left'>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ut doloribus, exercitationem laborum impedit nulla sapiente inventore, perferendis eos quia asperiores nam.
+        </p>
+        <button>
+          Leia Mais
+        </button>
       </div>
-    </Layout>
-}
+    </div>
+  </Layout>
+)
 
 export default Index
