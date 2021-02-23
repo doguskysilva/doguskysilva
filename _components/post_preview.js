@@ -25,14 +25,14 @@ const PostPreview = ({ post }) => (
           </dl>
           <span className="mr-2">-</span>
           {post.tags.map((tag) => (
-            <Tag tag={tag}></Tag>
+            <Tag key={tag} tag={tag}></Tag>
           ))}
         </div>
       </div>
       <div className="prose text-gray-500 max-w-none dark:text-gray-300 text-justify">
         {post.excerpt}
       </div>
-      <div class="text-base font-medium leading-6 pt-4">
+      <div className="text-base font-medium leading-6 pt-4">
         <Link href={`/blog/${post.slug}`}>
           <a class="text-blue-500 hover:text-blue-400" aria-label={post.title}>
             Leia mais →
