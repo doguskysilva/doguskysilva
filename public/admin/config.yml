@@ -1,0 +1,28 @@
+backend:
+  name: github
+  branch: main
+  repo: doguskysilva/doguskysilva
+local_backend: true
+site_url: https://dogusky.netlify.com
+display_url: https://dogusky.netlify.com
+logo_url: https://dogusky.netlify.com/icons/icon-96x96.png
+publish_mode: editorial_workflow
+media_folder: public/assets/blog/posts
+public_folder: /images
+editor:
+  preview: true
+collections:
+  - name: blog
+    label: Blog
+    label_singular: Post
+    folder: _posts
+    create: true
+    fields:
+      - { name: slug, label: Path }
+      - { label: Tags, name: tags, widget: list, default: ["JS"] }
+      - { label: Author, name: author, default: Douglas Silva }
+      - { name: date, label: Date, widget: datetime }
+      - { name: title, label: Title }
+      - { label: Featured Image, name: thumbnail, widget: image, required: false }
+      - { label: Description, name: description, widget: text }
+      - { name: body, label: Body, widget: markdown }
