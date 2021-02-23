@@ -33,12 +33,29 @@ h4 {
     @apply text-lg;
 }
 
-.index {
+.main-background {
     background-attachment: fixed;
     background-image: url("/images/background.svg");
     background-position: top right;
     background-repeat: no-repeat;
     background-size: 100% 100%;
+}
+
+.link-menu::after {
+    content: '';
+    height: 0.1em;
+}
+
+.link-menu::after {
+    @apply absolute w-full right-0 bottom-0  bg-white bg-opacity-50;
+}
+
+.active {
+    @apply text-opacity-100 text-white;
+}
+
+.active::after {
+    @apply bg-gradient-to-br from-cyan-500 to-lightBlue-600;
 }
 
 @tailwind utilities;
