@@ -3,7 +3,7 @@ import Layout from '../_components/layout'
 
 const Tag = ({ tag }) => (
   <Link href={`/tags/${tag}`}>
-    <a className="mr-5 text-lightBlue-600 hover:bg-lightBlue-400 rounded-full px-2">
+    <a className="mx-2 rounded px-2 text-lightBlue-500 hover:text-white hover:bg-lightBlue-500">
       {tag}
     </a>
   </Link>

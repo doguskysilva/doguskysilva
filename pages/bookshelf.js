@@ -12,7 +12,7 @@ function BookShelf() {
       <Head>
         <title>Minha Estante | doguskysilva</title>
       </Head>
-      <article className="mt-2 md:mt-6 lg:mx-12">
+      <article className="px-6 py-3 lg:px-10 lg:py-5">
         <header className="mb-8">
           <h1 className="text-3xl font-bold tracking-wide">Minha Estante</h1>
           <p className="mt-6">

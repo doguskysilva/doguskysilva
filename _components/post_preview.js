@@ -23,7 +23,7 @@ const PostPreview = ({ post }) => (
               </time>
             </dd>
           </dl>
-          <span className="mr-3">-</span>
+          <span className="mr-2">-</span>
           {post.tags.map((tag) => (
             <Tag tag={tag}></Tag>
           ))}
@@ -34,7 +34,7 @@ const PostPreview = ({ post }) => (
       </div>
       <div class="text-base font-medium leading-6 pt-4">
         <Link href={`/blog/${post.slug}`}>
-          <a class="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400" aria-label={post.title}>
+          <a class="text-blue-500 hover:text-blue-400" aria-label={post.title}>
             Leia mais →
           </a>
         </Link>

@@ -8,7 +8,7 @@ function Me() {
       <Head>
         <title>E Agora Eu | dogusky.techa</title>
       </Head>
-      <article className="mt-2 md:mt-10 mb-8 lg:mx-12 p-6">
+      <article className="px-6 py-3 lg:px-10 lg:py-5">
         <header className="mb-2 text-center">
           <h1 className="text-3xl font-bold tracking-wide">E Agora Eu!</h1>
           <img

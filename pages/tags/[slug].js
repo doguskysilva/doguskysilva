@@ -16,7 +16,7 @@ function TagPosts({ tag, posts }) {
       <Head>
         <title>tag {tag} | dogusky.tech</title>
       </Head>
-      <div className="px-6">
+      <div className="px-6 py-3 lg:px-10 lg:py-5">
         <header>
           <h1 className="text-3xl font-semibold tracking-wide">
             <span className="border-b border-white"> Posts com a tag: {tag}</span>

@@ -20,7 +20,7 @@ function Post({ post, morePost, preview }) {
       <Head>
         <title>{post.title} | dogusky.tech</title>
       </Head>
-      <section className="p-6 pt-4">
+      <section className="px-6 py-3 lg:px-10 lg:py-5">
         <header className="pb-6">
           <div className="space-y-1 text-center">
             <div>
@@ -48,7 +48,7 @@ function Post({ post, morePost, preview }) {
         <article className="py-8 border-t border-b border-gray-700">
           <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </article>
-        <footer className="block py-6">
+        <footer className="block">
           
         </footer>
       </section>

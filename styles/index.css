@@ -47,11 +47,11 @@ h4 {
 }
 
 .link-menu::after {
-    @apply absolute w-full right-0 bottom-0  bg-white bg-opacity-50;
+    @apply absolute w-full right-0 bottom-0  bg-white bg-opacity-50 transition-colors duration-500 ease-in-out;
 }
 
 .active {
-    @apply text-opacity-100 text-white;
+    @apply text-opacity-100 text-white transition-colors duration-500 ease-in-out;
 }
 
 .active::after {

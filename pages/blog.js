@@ -9,7 +9,7 @@ function Blog(props) {
       <Head>
         <title>Posts | dogusky.tech</title>
       </Head>
-      <div className="-mt-6 px-6">
+      <div className="-mt-3 lg:-mt-5 px-6 py-3 lg:px-10 lg:py-5">
         <ul className="divide-y divide-gray-200 dark:divide-gray-700">
         { props.posts.map(post => <li className="py-8">
             <PostPreview post={post} ></PostPreview>
