@@ -1,57 +1,13 @@
-# Alpine Starter
+### Hi there 👋
 
-Starter template for [Alpine](https://alpine.nuxt.space).
+#### I'm a Software Engineer working in São Paulo, Brazil
 
-## Clone
+Here are some ideas to get you started:
 
-Clone the repository (using `nuxi`):
+- 🔭 I currently work at Nubank as an Software Engineer
+- 👯 I’m looking to collaborate on open source projects with Laravel and Vue
+- ⚙️ I use daily: `.clj`
+- 💬 Ask me about Vue, Laravel and Clojure
+- 📫 How to reach me: [twitter.com/doguskysilva](https://twitter.com/doguskysilva)
 
-```bash
-npx nuxi init -t themes/alpine
-```
-
-## Setup
-
-Install dependencies:
-
-```bash
-pnpm install
-```
-
-## Development
-
-```bash
-pnpm dev
-```
-
-## Edge Side Rendering
-
-Can be deployed to Vercel Functions, Netlify Functions, AWS, and most Node-compatible environments.
-
-Look at all the available presets [here](https://v3.nuxtjs.org/guide/deploy/presets).
-
-```bash
-pnpm build
-```
-
-## Static Generation
-
-Use the `generate` command to build your application.
-
-The HTML files will be generated in the .output/public directory and ready to be deployed to any static compatible hosting.
-
-```bash
-pnpm generate
-```
-
-## Preview build
-
-You might want to preview the result of your build locally, to do so, run the following command:
-
-```bash
-pnpm preview
-```
-
----
-
-For a detailed explanation of how things work, check out [Alpine](https://alpine.nuxt.space).
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ee199ea1-c7bf-4034-bd73-2fb9068dae7a/deploy-status)](https://app.netlify.com/sites/dogusky/deploys)
