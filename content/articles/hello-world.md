@@ -1,16 +1,11 @@
 ---
-draft: false
-slug: hello-world
-title: Hello World!
-date: 2021-04-06
-tags:
-  - blog
-  - nextjs
-summary: Assim como em todo novo curso relacionado a programação, esse será o
-  meu "hello world". Descrevo um pouco do porquê de ter criado esse espaço o que usei para construir esse espaço.
-authors:
-  - default
-layout: PostLayout
+cover: /articles/write-articles.webp
+date: 2021-04-10T03:00:00.000Z
+author:
+  name: Douglas Silva
+  avatarUrl: https://pbs.twimg.com/profile_images/1370286658432724996/ZMSDzzIi_400x400.jpg
+  link: https://twitter.com/doguskysilva
+layout: article
 ---
 
 ## Por quê

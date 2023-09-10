@@ -1,21 +1,18 @@
 ---
-draft: false
-slug: migrations-models-compatibility-django
+cover: /articles/write-articles.webp
 title: 'Django: compatibilidate de migrations e models'
 date: 2021-04-10T03:00:00.000Z
-tags:
-  - django
-  - python
-summary: Ao trabalhar em um projeto desenvolvido com Django, problemas com
-  migrations podem surgir ao longo do tempo, principalmente quando temos
-  inserção de dados, pois tabelas e models mudam ao longo do tempo e garantir a
-  compatibilidade nesse contexto é fundamental para mantermos um bom histórico
-  de migrations.
-authors:
-  - default
-images:
-  - /static/images/blog/storm_tech.png
-  - /static/images/blog/default-fallback-image.png
+author:
+  name: Douglas Silva
+  avatarUrl: https://pbs.twimg.com/profile_images/1370286658432724996/ZMSDzzIi_400x400.jpg
+  link: https://twitter.com/doguskysilva
+description: Ao trabalhar em um projeto desenvolvido com Django, problemas com migrations podem surgir ao longo do tempo, principalmente quando temos inserção de dados, pois tabelas e models mudam ao longo do tempo e garantir a compatibilidade nesse contexto é fundamental para mantermos um bom histórico de migrations.
+layout: article
+badges: [{
+  color: 'white',
+  bg: 'rgba(0, 0, 0, 0.3)',
+  content: 'Django'
+}]
 ---
 
 ## Cenário
