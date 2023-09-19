@@ -8,6 +8,7 @@ title: Scripturas
 date: 2023-05-01
 description: O que vem ai?
 layout: article
+draft: true
 ---
 
 ## Ideia

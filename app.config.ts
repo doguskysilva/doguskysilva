@@ -1,7 +1,7 @@
 export default defineAppConfig({
   alpine: {
     title: 'Douglas Silva',
-    description: 'The minimalist blog theme',
+    description: 'My minimalist space to share my thoughts and notes',
     image: {
       src: '/social-card-preview.png',
       alt: 'An image showcasing my project.',
@@ -18,7 +18,7 @@ export default defineAppConfig({
     },
     footer: {
       credits: {
-        enabled: true, // possible value are : true | false
+        enabled: false, // possible value are : true | false
         repository: 'https://www.github.com/doguskysilva' // our github repository
       },
       navigation: true, // possible value are : true | false

@@ -13,6 +13,7 @@ badges: [{
   bg: 'rgba(0, 0, 0, 0.3)',
   content: 'Django'
 }]
+draft: true
 ---
 
 ## Cenário

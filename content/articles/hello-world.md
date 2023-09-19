@@ -1,31 +1,31 @@
 ---
 cover: /articles/write-articles.webp
-date: 2021-04-10T03:00:00.000Z
+date: 2023-09-17T03:00:00.000Z
+title: Hello, World!
 author:
   name: Douglas Silva
   avatarUrl: https://pbs.twimg.com/profile_images/1370286658432724996/ZMSDzzIi_400x400.jpg
   link: https://twitter.com/doguskysilva
 layout: article
+description: Fazer anotações faz parte do meu processo de aprendizado. Assim decidi colocar algumas dessas notas e observações de forma pública. 
 ---
 
-## Por quê
+## Por quê?
 
-Umas das coisas que mais gosto de fazer é compartilhar as coisas que aprendo. Quando tinha por volta dos 16 anos, eu já era professor de informática e gostava muito do que fazia, principalmente pelo movito de querer sempre estar preparado para poder responder aos alunos e levar o conteúdo de forma mais interessantes.
+Uma das coisas que sempre fiz ao aprender algo novo é compartilhar o que aprendi e anotar essas informações para usá-las mais tarde. Quando eu tinha 17 anos, eu já estava ensinando o básico de computadores, e encontrar maneiras de tornar esse assunto interessante com exemplos práticos era um desafio diário.
 
-Depois quando comecei a trabalhar com desenvolvimento de software, se manter atualizado, pesquisar, e até mesmo propor soluções se tornou algo do dia-a-dia, e de alguma forma isso acabava indo parar em algumas das conversas com meus colegas de faculdade, pois se tem algo que eu faço bem é de falar, e como eu falo!
+Mais tarde, quando comecei a trabalhar com programação de computadores, percebi que precisava ficar atualizado, fazer pesquisas constantes e até propor novas ideias regularmente. Eu também adoro conversar e explicar coisas, o que acabava em longas conversas com meus colegas de faculdade.
 
-No fim, eu quis de fato poder pegar tudo que aprendi e descobri, e colocar em um local para que sirva tanto como registro para mim e para que outras pessoas possam ter acesso.
+No final das contas, o que realmente queria era reunir tudo o que aprendi ao longo do tempo em um só lugar. Isso não só serviria como um registro pessoal para mim, mas também como uma fonte de informações para outras pessoas que tivessem as mesmas perguntas e interesses que eu. Dessa forma, todos poderiam se beneficiar do que aprendi.
 
 ## Como?
 
-Agora vamos para a parte técnica da coisa: o que eu usei para construir esse meu site, com uma seção de blog dentro? A principio eu queria algo extremamente simples, sem precisar de banco de dados, sem precisar levantar um servidor rodando um PHP, Ruby ou Python da vida, e veio a primeira parte da ideia, que era usar Static Site Generator (SSG) para gerar as páginas HTML de forma estática.
+Este projeto passou por várias tecnologias antes de encontrar algo que realmente me agradasse e fosse fácil de usar. Para alcançar esse objetivo, busquei por estruturas que funcionassem com SSG (Static Site Generator) para evitar a configuração de ambientes de banco de dados e coisas do tipo. Como a ideia era criar um blog com textos, a utilização de arquivos em formato markdown para registrar essas informações era mais do que suficiente.
 
-Como eu estava a um tempo tentando fazer algo mais útil com [ReactJS](https://pt-br.reactjs.org/), eu optei pelo [Next.js](https://nextjs.org/), principalmente pela facilidade de poder criar novas páginas e no fim gerar todos os arquivos estáticos.
+Inicialmente, tentei utilizar ferramentas como [Gatsby](https://www.gatsbyjs.com/) e [Next.js](https://nextjs.org/), que têm o [ReactJS](https://pt-br.reactjs.org/) como base. No entanto, como nunca fui um grande fã do React e sempre tive uma familiaridade com o [VueJS](https://vuejs.org/), acabei migrando o projeto para o [Nuxt](https://nuxt.com/). Vale ressaltar que minha escolha não se baseou em considerações técnicas, como desempenho ou algo do tipo, mas sim na minha preferência pessoal: eu gosto do VueJS e optei pelo Nuxt porque ele oferecia o que eu precisava.
 
-![Exemplo da página inicial do site](/static/images/blog/index-page.png 'Image Used')
+Ao usar o Nuxt, tive a opção de iniciar o projeto com um modelo inicial, chamado [Alpine](https://github.com/nuxt-themes/alpine-starter/tree/main), que escolhi para este blog.
 
-Para gerenciar os conteúdos o [Netflify CMS](https://www.netlifycms.org/) serviu muito bem: simples, se integra fácil a qualquer ferramenta do conceito Jamstack, possui um workflow intuitivo e usa o GitHub como autenticação para acesso. Outro ponto interessante é que ele utiliza o Git com workflow, sendo assim ele mantém texto que ainda estão sendo escritos em um Pull Request separado e ao terminar e publicar, ele coloca na branch principal.
+Quanto à hospedagem, optei pelo serviço da [Netlify](https://www.netlify.com/),, que permite uma integração perfeita com o GitHub. Isso significa que toda vez que faço uma alteração e a envio para o GitHub, o Netlify inicia automaticamente o processo de implantação, publicando as mudanças.
 
-E como hospodegem utilizei o próprio serviço da [Netlify](https://www.netlify.com/), que permite um processo de integração com o GitHub, logo toda vez que eu subo uma alteração no GitHub o serviço da Netlify executa o processo de deploy, publicando as alterações.
-
-Obviamente eu utilizei um template pronto como base, o [Tailwind NextJS Starter Blog](https://github.com/timlrx/tailwind-nextjs-starter-blog).
+Uma das principais lições que aprendi com todo esse processo é a importância de começar de forma simples, utilizando apenas o que realmente é necessário. Além disso, não há problema algum em aproveitar recursos prontos, como um modelo ou projeto inicial, tanto no início quanto ao longo do desenvolvimento. Afinal, o principal objetivo aqui é apenas registrar as informações mais importantes, e não criar um blog ou site comercial.
