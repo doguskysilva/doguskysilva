@@ -1,7 +1,7 @@
 ---
 cover: /articles/write-articles.webp
 title: 'Django: compatibilidate de migrations e models'
-date: 2021-04-10T03:00:00.000Z
+date: 2021-04-10
 author:
   name: Douglas Silva
   avatarUrl: https://pbs.twimg.com/profile_images/1370286658432724996/ZMSDzzIi_400x400.jpg

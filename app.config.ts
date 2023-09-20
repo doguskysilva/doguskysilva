@@ -4,7 +4,7 @@ export default defineAppConfig({
     description: 'My minimalist space to share my thoughts and notes',
     image: {
       src: '/social-card-preview.png',
-      alt: 'An image showcasing my project.',
+      alt: 'My minimalist space to share mu thoughts and notes.',
       width: 400,
       height: 300
     },
