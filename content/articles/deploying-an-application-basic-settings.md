@@ -1,0 +1,71 @@
+---
+cover: /articles/deploying.png
+date: 2025-11-25
+author:
+  name: Douglas Silva
+  avatarUrl: https://pbs.twimg.com/profile_images/1370286658432724996/ZMSDzzIi_400x400.jpg
+  link: https://twitter.com/doguskysilva
+layout: article
+---
+
+# Deploying an application - Basic Settings!
+
+## SSH
+Para iniciar precisamos ter um servidor. Pode der um droplet no Digital Ocean, ou uma VPS na Hostinger, não importa, o principal é ter um servidor para se configurar e claro se conectar. Aqui uma regra é geral: se conecte usando SSH. Existem diversos tutoriais de como configurar chaves SSH e como realizar a primeira conexão:
+- [Digital Ocean: How to Connect to Droplets with SSH](https://docs.digitalocean.com/products/droplets/how-to/connect-with-ssh/)
+- [Hostinger: How to Connect to Your VPS via SSH](https://support.hostinger.com/en/articles/5723772-how-to-connect-to-your-vps-via-ssh)
+- [Self server: How to Set up an SSH Server on a Home Computer](https://dev.to/zduey/how-to-set-up-an-ssh-server-on-a-home-computer)
+
+## Firewall
+Depois foi necessário todo processo de adicinar as regras de Firewall e aqui mais uma vez os tutoriais da Digital Ocean e Hostinger cobrem boa parte dos cenários para se configurar o firewall.
+- [Digital Ocean: How to Set Up a Firewall with UFW on Ubuntu](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu)
+- [Hostinger: How to Configure Your Ubuntu Firewall with UFW and Set Firewall Rules](https://www.hostinger.com/tutorials/how-to-configure-firewall-on-ubuntu-using-ufw/)
+
+## Nginx
+Com isso configurado podemos adicionar o que seria necessário para visualsarmos o servidor web. Aqui vamos usar o Nginx.
+```bash
+sudo apt install nginx #ubuntu
+```
+```bash
+sudo dnf install nignx #fedora
+```
+
+Agora vamos dar ar permissões para o do firewall para o Nginx:
+```bash
+sudo ufw allow 'Nginx HTTP'
+```
+
+Acessando o IP do servidor é possível ver a página inicial padrão do Nginx.
+-- imagem do nginx
+
+## PHP-FPM
+Para pode usar o nginx junto com o PHP será necessário instalar o PHP-FPM
+```bash
+sudo dnf install php-fpm
+```
+
+Agora podemos criar o nosso arquivo de configuração dentro do nginx no conf.d `/etc/nginx/conf.d/projectus-servitorius.com.conf`
+
+```conf
+server {
+        listen [::]:80;
+        server_name projectus-servitorius projectus-servitorius.com www.projectus-servitorius;
+        root /var/www/html;
+
+        index index.php index.html;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+        location ~ \.php$ {
+                include fastcgi.conf;
+                fastcgi_pass unix:/var/run/php-fpm/www.sock;
+        }
+
+        location ~ /\.ht {
+                deny all;
+        }
+}
+
+```
