@@ -1,6 +1,6 @@
 ---
 cover: /articles/deploying.png
-date: 2025-11-25
+date: 2024-11-25
 author:
   name: Douglas Silva
   avatarUrl: https://pbs.twimg.com/profile_images/1370286658432724996/ZMSDzzIi_400x400.jpg
