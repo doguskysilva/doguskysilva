@@ -6,7 +6,7 @@ export default defineAppConfig({
 
   socials: {
     github: 'https://github.com/doguskysilva',
-      sharing_networks: ['facebook', 'twitter', 'linkedin']
+    sharing_networks: ['facebook', 'twitter', 'linkedin']
   },
 
   authors: [
@@ -16,6 +16,7 @@ export default defineAppConfig({
   table_of_contents: true,
 
   menu: [
+    //{ name: 'Portfolio', path: '/portfolio'},
     { name: 'About', path: '/about'},
     { name: 'Archives', path: '/archives'},
   ],

@@ -1,57 +1,59 @@
 ---
 id: 2f9f9961-2af4-4cad-9c09-4b8ffbc49ac3
 title: "Omarchy: primeiros passos"
-description: "This is my first blog post"
-date: "2025-10-05"
+description: "Minha experiência migrando para o Omarchy, configurando meu setup de desenvolvimento e ajustando ferramentas como ZSH, Neovim e Tmux."
+date: "2025-10-13"
 categories:
-  - blog
-  - opensource
-tags:
   - linux
+  - desenvolvimento
+  - pessoal
+tags:
   - omarchy
+  - archlinux
+  - zsh
+  - tmux
+  - neovim
+alternates:
+  - hreflang: "pt"
+    href: "/2025/omarcy-first-steps"
+  - hreflang: "en"
+    href: "/en/2025/omarcy-first-steps"
 ---
 
-Recentemente eu iniciei a troca do meu setup que utilizava o MacBook Air M1 para o uso de um desktop. Desde 2017 eu não uso Windows no meu dia-a-dia, sempre utilizei alguma distro linux, que inicialmente era o Ubuntu e dois se tornou o Fedora. Em 2024 para aprender alguma distro nova eu  comecei a testar o Arch, pois assim instalaria absolutamente tudo que eu de fato precisava para o meu dia-a-dia.
 
-Recentemente eu tive acesso ao projeto do DHH o Omakub que era baseado no Ubuntu. Mas logo depois saiu um versão voltada para o Arch o [Omarchy](https://omarchy.org/).
 
-## Por quê Omarchy?
-Eu sempre usei meu computador/notebook voltado para estudar e desenvolvimento de software. E nunca fui de instalar e manter instado coisas que não uso, sempre mantenho o que de fato preciso.
+Recentemente, iniciei a montagem de um novo setup, pois ante eu usava um MacBook Air M1, e agora uso também um desktop. Desde 2017, não uso Windows no dia a dia, sempre trabalhando com alguma distro Linux — inicialmente Ubuntu e depois Fedora. Em 2024, para conhecer uma nova distro, comecei a testar o Arch, instalando apenas o que realmente precisava para meu fluxo de trabalho diário.
 
-Outro ponto é que eu sempre fui um "cara do terminal". Sempre fiz muito uso do cli e ferramentas que rodam dentro do terminal no dia-a-dia, então coisas como tmux, Neovim, git, docker e as ferramentas das linguagens que estudo ou uso sempre fiz via CLI. Outro ponto é que para absolutamente quase tudo eu criei um atalho.
+Tive acesso ao projeto do DHH, o Omakub, baseado no Ubuntu, mas logo depois surgiu uma versão voltada para Arch: o [Omarchy](https://omarchy.org/).
 
-Dito isso eu sempre tive uma configuracão, mesmo quando usava o MacOS:
-- Algum terminal (Iterm2, Gnome Terminal)
-- Neovim + Lazyvim
-- Tmux + sistema de plugins
-- ZSH + Oh-my-zsh + plugins de auto-completations
-- Docker ou Podman
-- Git e seus alias
-- Recentemente o Startship
+## Por que Omarchy?
 
-E é ai que entra o Omarchy: by default ele vem com essas ferramentas instaladas e pré-configuradas da forma como eu costumo usar (menos o zsh pois o Omarchy vem com o bash configurado), logo por quê não unir o fator Arch + a base do setup que costumo usar + configuracões de atalhos?
+Sempre configurei meus computadores para estudo e desenvolvimento de software, mantendo apenas o que realmente uso.  
+Sou um “cara do terminal” — grande parte do meu dia a dia passa por ferramentas CLI como Tmux, Neovim, Git, Docker e outras ligadas às linguagens que estudo ou uso. Para quase tudo, criei atalhos que aceleram meu fluxo.
 
-## Instalacão
+Mesmo no MacOS, meu setup básico incluía terminal, Neovim + LazyVim, Tmux com plugins, ZSH + Oh-my-zsh, Docker ou Podman, Git com aliases e recentemente o Starship.  
 
-O processo de instalacão do Omarchy pode ser feito de duas formas:
-1. [instalacão manual](https://learn.omacom.io/2/the-omarchy-manual/96/manual-installation), onde você o archlinux e depois executar o comando que baixa e executa os scripts do Omarchy
-2. baixa a iso e realiza a instalacão.
+O Omarchy entra aqui: ele vem com essas ferramentas instaladas e pré-configuradas (menos o ZSH, que vem com Bash). Unir Arch, meu setup habitual e meus atalhos parecia a escolha ideal.
 
-Como a configuracão padrão da ISO leva em consideracão coisas como: BRTFS, apenas um disco para toda a instalacão, usa o Limine como bootloader ao invês do GRUB e Snapper como ferramenta de snapshots e rollback, logo decidi ir com a iso mesmo. Como meu novo setup não é um notebook e só eu uso, logo faz mais sentido ter uma senha no boot protegendo o disco inteiro e a inicializacão e logar direto no meu usuário.
+## Instalação
 
-## Mudancas
+O Omarchy pode ser instalado de duas formas: [manualmente](https://learn.omacom.io/2/the-omarchy-manual/96/manual-installation), instalando o Arch e depois os scripts do Omarchy, ou usando a ISO direta.  
+Optei pela ISO, que já traz uma configuração padrão com BTRFS, Limine como bootloader e Snapper para snapshots e rollback. Como o desktop é pessoal, configurei proteção no boot e logon direto no meu usuário.
 
-Como eu disse anteriormente o Omarchy vem com QUASE tudo que eu costumo usar, e tem algumas configuracoes que eu precisie fazer para ele ficar de acordo com o que eu queria.
+
+## Ajustes pós-instalação
+
+Embora o Omarchy venha com quase tudo que costumo usar, precisei fazer algumas personalizações.  
+
 
 ### ZSH
 
-Por padrão o Omarchy vem com o bash e sem uma forma oficial de realizar o replace para o zsh. Então a primeira coisa que fiz foi instalar o zsh e os principais plugins:
+O Omarchy vem com Bash, então instalei o ZSH e plugins principais:
 
 ```bash
 yay -S zsh zsh-autosuggestions zsh-syntax-highlighting
 ```
-
-E como eu uso a combinacão zsh + [oh-my-zsh](https://ohmyz.sh/) também fiz a instalacão:
+E como eu uso a combinacão zsh + [oh-my-zsh](https://ohmyz.sh/) também fiz a seguinte instalacão:
 
 ```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -59,7 +61,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 
 O Omarchy possui diversos arquivos de configuracão proprio para o bash e todos eles podem ser vistos na pasta `~/.local/share/omarchy/default/bash/`.
 
-Um exemplo de arquivo que precisa ser atualizado é o `init` que possui essa configuracão:
+Um exemplo de arquivo que precisa ser atualizado é o `init` que possui a seguinte configuracão:
 
 ```config
 if command -v mise &> /dev/null; then
@@ -72,7 +74,7 @@ fi
 ...
 ```
 
-Então alterei o meu `.zshrc` para ficar com os seguintes imports e manter alguns imports to bash do Omarchy.
+Então alterei o meu `.zshrc` para ficar com os seguintes imports e manter alguns imports default do bash do Omarchy.
 
 ```config
 # ... previous zshrc setup
@@ -141,4 +143,5 @@ bindkey '\e[C' forward-char
 bindkey '\e[D' backward-char
 ```
 
+### Tmux
 
