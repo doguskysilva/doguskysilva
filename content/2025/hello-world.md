@@ -11,12 +11,6 @@ tags:
   - bloggrify
   - vuejs
   - markdown
-alternates:
-  - hreflang: "pt"
-    href: "2025/hello-world"
-  - hreflang: "en"
-    href: "/en//2025/hello-world"
-
 ---
 
 

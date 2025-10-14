@@ -3,13 +3,12 @@ id: b50e089a-3c18-4a2e-910f-17c88d2d8854
 title: Sobre mim
 description: Um pouco da minha trajetória como engenheiro de software e da curiosidade que me levou a explorar o universo da tecnologia e do desenvolvimento de software.
 listed: false
-categories:
-  - documentation
+language: "pt"
 alternates:
   - hreflang: "pt"
-    href: "about"
+    href: "/about"
   - hreflang: "en"
-    href: "/en//about"
+    href: "/en/about"
 ---
 
 
