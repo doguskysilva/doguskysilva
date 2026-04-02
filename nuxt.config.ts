@@ -4,5 +4,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   extends: [
     '@bloggrify/core',
-  ]
+  ],
+  modules: ['@nuxt/eslint'],
 })
