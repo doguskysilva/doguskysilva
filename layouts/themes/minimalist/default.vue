@@ -9,9 +9,11 @@
           <h2 class="text-3xl font-bold">{{ (doc as any).title }}</h2>
         </div>
 
-        <!-- Post metadata: date + tags -->
+        <!-- Post metadata: date + reading time + tags -->
         <div class="mt-4 flex flex-wrap justify-center items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
-          <span v-if="(doc as any).date">{{ formatDate((doc as any).date) }}</span>
+          <span v-if="(doc as any).date">
+            {{ formatDate((doc as any).date) }}<template v-if="(doc as any).body"> · {{ readingTime((doc as any).body) }}</template>
+          </span>
           <div v-if="(doc as any).tags?.length" class="flex flex-wrap gap-1.5">
             <NuxtLink
               v-for="tag in (doc as any).tags"
@@ -53,6 +55,20 @@ function formatDate(date: string): string {
     month: 'long',
     day: 'numeric',
   })
+}
+
+function extractText(node: any): string {
+  if (!node) return ''
+  if (typeof node === 'string') return node
+  if (node.type === 'text') return node.value || ''
+  if (Array.isArray(node)) return node.map(extractText).join(' ')
+  if (node.children) return extractText(node.children)
+  return ''
+}
+
+function readingTime(body: any): string {
+  const words = extractText(body).trim().split(/\s+/).filter(Boolean).length
+  return `${Math.max(1, Math.ceil(words / 200))} min read`
 }
 </script>
 

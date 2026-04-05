@@ -22,7 +22,7 @@
         </p>
 
         <p class="mt-3 text-xs text-gray-400 dark:text-gray-500">
-          {{ formatDate(article.date) }}
+          {{ formatDate(article.date) }}<template v-if="article.body"> · {{ readingTime(article.body) }}</template>
         </p>
 
         <div class="mt-4 flex flex-wrap gap-2">
@@ -55,7 +55,7 @@
         </NuxtLink>
         <div class="mt-2 flex flex-wrap items-center gap-3">
           <span class="text-xs text-gray-400 dark:text-gray-500">
-            {{ formatDate(article.date) }}
+            {{ formatDate(article.date) }}<template v-if="article.body"> · {{ readingTime(article.body) }}</template>
           </span>
           <div v-if="article.tags && article.tags.length > 0" class="flex flex-wrap gap-1.5">
             <NuxtLink
@@ -122,5 +122,19 @@ function formatDate(date: string): string {
     month: 'short',
     day: 'numeric',
   })
+}
+
+function extractText(node: any): string {
+  if (!node) return ''
+  if (typeof node === 'string') return node
+  if (node.type === 'text') return node.value || ''
+  if (Array.isArray(node)) return node.map(extractText).join(' ')
+  if (node.children) return extractText(node.children)
+  return ''
+}
+
+function readingTime(body: any): string {
+  const words = extractText(body).trim().split(/\s+/).filter(Boolean).length
+  return `${Math.max(1, Math.ceil(words / 200))} min read`
 }
 </script>
