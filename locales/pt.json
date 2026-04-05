@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "archives": "Arquivos"
+  },
+  "home": {
+    "lastPosts": "Últimas Publicações",
+    "readAllPosts": "Ver todos os posts →"
+  }
+}

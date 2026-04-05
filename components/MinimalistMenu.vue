@@ -6,7 +6,7 @@
           :to="localePath('/')"
           class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
         >
-          Home
+          {{ t('nav.home') }}
         </NuxtLink>
         <NuxtLink
           v-for="item in menu"
@@ -14,7 +14,7 @@
           :to="localePath(item.path)"
           class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
         >
-          {{ item.name }}
+          {{ t(`nav.${item.name.toLowerCase()}`, item.name) }}
         </NuxtLink>
       </div>
       <div class="flex items-center gap-3">
@@ -70,7 +70,7 @@ const menu = config.menu || []
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
 
-const { locale } = useI18n()
+const { locale, t } = useI18n()
 const localePath = useLocalePath()
 const switchLocalePath = useSwitchLocalePath()
 </script>
