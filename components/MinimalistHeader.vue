@@ -3,11 +3,13 @@
     <NuxtLink :to="localePath('/')" class="text-2xl font-bold tracking-tight hover:opacity-75 transition-opacity">
       {{ title }}
     </NuxtLink>
-    <AppSearch />
+    <LocaleSearch />
   </nav>
 </template>
 
 <script setup lang="ts">
+import LocaleSearch from '~/components/LocaleSearch.vue'
+
 const config = useAppConfig()
 const title = config.name || 'Minimalist'
 const localePath = useLocalePath()
