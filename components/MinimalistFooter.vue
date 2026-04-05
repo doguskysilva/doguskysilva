@@ -25,5 +25,5 @@
 
 <script setup lang="ts">
 const config = useAppConfig()
-const github = (config.socials as any)?.github || null
+const github = (config.socials as { github?: string } | undefined)?.github || null
 </script>
