@@ -6,4 +6,5 @@ export default defineNuxtConfig({
     '@bloggrify/core',
   ],
   modules: ['@nuxt/eslint'],
+  css: ['~/assets/css/main.css'],
 })
