@@ -1,4 +1,13 @@
 services:
+  vim:
+    build:
+      context: ./vim
+    image: doguskysilva-vim
+    stdin_open: true
+    tty: true
+    volumes:
+      - ./content:/content
+
   dev:
     image: node:22-alpine
     working_dir: /app
