@@ -5,7 +5,7 @@
 
     <main class="mt-10 w-3/4 mx-auto">
       <div class="mt-4 text-gray-600 dark:text-gray-400">
-        {{ description }}
+        {{ t('home.description') }}
       </div>
 
       <div class="mt-10">
@@ -36,8 +36,6 @@ defineProps<{
   doc: unknown
 }>()
 
-const config = useAppConfig()
-const description = config.description || 'A minimalist theme for Bloggrify'
 const localePath = useLocalePath()
 const { t } = useI18n()
 </script>
