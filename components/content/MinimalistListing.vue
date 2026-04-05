@@ -87,10 +87,18 @@ const props = defineProps<{
 }>()
 
 const format = props.format || 'card'
+const { locale } = useI18n()
 const { itemsPerPage, currentPage } = usePagination()
+
+// Prefix content queries with the current locale path.
+// For the default locale (pt) query from root but exclude /en/ subtree.
+const localePath = computed(() =>
+  locale.value === 'en' ? '/en' : '/',
+)
 
 const id = [
   'listing',
+  locale.value,
   props.category && `cat-${props.category}`,
   props.tag && `tag-${props.tag}`,
   props.prefix && `prefix-${props.prefix}`,
@@ -104,19 +112,25 @@ if (props.category) {
 if (props.tag) {
   where['tags'] = { $in: [props.tag] }
 }
+// For default locale exclude content from /en/ subtree
+if (locale.value !== 'en') {
+  where['_path'] = { $not: { $contains: '/en/' } }
+}
 where = { ...where, ...{ draft: { $ne: true }, listed: { $ne: false } } }
 
 const numberOfPostsPerPage = itemsPerPage.value
 
+const contentBase = localePath.value + (props.prefix || '')
+
 const { data: docs } = useAsyncData(id, () => {
-  return queryContent(props.prefix || '')
+  return queryContent(contentBase)
     .where(where)
     .sort({ date: -1 })
     .skip((currentPage.value - 1) * numberOfPostsPerPage)
     .limit(numberOfPostsPerPage)
     .find()
 })
-const totalNumberOfPages = await queryContent(props.prefix || '').where(where).count()
+const totalNumberOfPages = await queryContent(contentBase).where(where).count()
 
 function formatDate(date: string): string {
   return new Date(date + 'T00:00:00').toLocaleDateString('pt-BR', {

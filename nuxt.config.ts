@@ -5,6 +5,15 @@ export default defineNuxtConfig({
   extends: [
     '@bloggrify/core',
   ],
-  modules: ['@nuxt/eslint'],
+  modules: ['@nuxt/eslint', '@nuxtjs/i18n'],
   css: ['~/assets/css/main.css'],
+  i18n: {
+    locales: [
+      { code: 'pt', language: 'pt-BR', name: 'Português', file: 'pt.json' },
+      { code: 'en', language: 'en-US', name: 'English', file: 'en.json' },
+    ],
+    defaultLocale: 'pt',
+    strategy: 'prefix_except_default',
+    langDir: 'locales/',
+  },
 })

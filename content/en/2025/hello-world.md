@@ -11,7 +11,6 @@ tags:
   - bloggrify
   - vuejs
   - markdown
-draft: true
 ---
 
 

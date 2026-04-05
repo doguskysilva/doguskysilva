@@ -1,0 +1,15 @@
+{
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "archives": "Arquivos"
+  },
+  "home": {
+    "description": "Sou Doug, Engenheiro de Software, apaixonado por tecnologia, programação e por entender como as coisas realmente funcionam.",
+    "lastPosts": "Últimas Publicações",
+    "readAllPosts": "Ver todos os posts →"
+  },
+  "archives": {
+    "title": "Todos os Posts"
+  }
+}

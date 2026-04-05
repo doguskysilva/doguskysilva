@@ -7,6 +7,7 @@
     "build": "nuxi build",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
+    "posts": "./scripts/blog-posts.sh",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "test": "vitest run"

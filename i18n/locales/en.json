@@ -1,0 +1,15 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "archives": "Archives"
+  },
+  "home": {
+    "description": "I'm Doug, Software Engineer, passionate about technology, programming, and uncovering how things truly work.",
+    "lastPosts": "Last Posts",
+    "readAllPosts": "Read all posts →"
+  },
+  "archives": {
+    "title": "All Posts"
+  }
+}

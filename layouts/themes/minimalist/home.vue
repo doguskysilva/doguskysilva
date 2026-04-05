@@ -5,18 +5,18 @@
 
     <main class="mt-10 w-3/4 mx-auto">
       <div class="mt-4 text-gray-600 dark:text-gray-400">
-        {{ description }}
+        {{ t('home.description') }}
       </div>
 
       <div class="mt-10">
-        <MinimalistListing title="Last Posts" />
+        <MinimalistListing :title="t('home.lastPosts')" />
 
         <div class="mt-6">
           <NuxtLink
-            to="/archives"
+            :to="localePath('/archives')"
             class="text-sm text-gray-500 dark:text-gray-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
           >
-            Read all posts →
+            {{ t('home.readAllPosts') }}
           </NuxtLink>
         </div>
       </div>
@@ -36,8 +36,8 @@ defineProps<{
   doc: unknown
 }>()
 
-const config = useAppConfig()
-const description = config.description || 'A minimalist theme for Bloggrify'
+const localePath = useLocalePath()
+const { t } = useI18n()
 </script>
 
 <style>
