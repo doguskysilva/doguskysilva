@@ -1,1 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* Global dark mode background — zinc-900 instead of slate-900 (no blue cast) */
+.dark body {
+  background-color: #18181b; /* zinc-900 */
+}

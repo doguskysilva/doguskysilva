@@ -9,10 +9,10 @@
       <div
         v-for="article in docs"
         :key="article._id"
-        class="rounded-lg border border-l-2 border-gray-200 dark:border-neutral-700 hover:border-l-indigo-500 dark:hover:border-l-indigo-400 p-6 transition-colors"
+        class="rounded-lg border border-l-2 border-gray-200 dark:border-neutral-700 hover:border-l-sky-500 dark:hover:border-l-sky-400 p-6 transition-colors"
       >
         <NuxtLink :to="article._path">
-          <h2 class="text-base font-semibold text-gray-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors">
+          <h2 class="text-base font-semibold text-gray-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
             {{ article.title }}
           </h2>
         </NuxtLink>
@@ -30,7 +30,7 @@
             v-for="tagArticle in article.tags"
             :key="tagArticle"
             :to="`/tags/${tagArticle}`"
-            class="rounded border border-gray-300 dark:border-neutral-600 px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400 hover:border-indigo-400 hover:text-indigo-500 dark:hover:border-indigo-500 dark:hover:text-indigo-400 transition-colors"
+            class="rounded border border-gray-300 dark:border-neutral-600 px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400 hover:border-sky-400 hover:text-sky-500 dark:hover:border-sky-500 dark:hover:text-sky-400 transition-colors"
           >
             {{ tagArticle }}
           </NuxtLink>
@@ -46,7 +46,7 @@
         class="py-5"
       >
         <NuxtLink :to="article._path" class="group block">
-          <div class="text-base font-medium text-gray-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+          <div class="text-base font-medium text-gray-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
             {{ article.title }}
           </div>
           <div v-if="article.description" class="mt-1 text-sm text-gray-500 dark:text-gray-400">
@@ -62,7 +62,7 @@
               v-for="tagArticle in article.tags"
               :key="tagArticle"
               :to="`/tags/${tagArticle}`"
-              class="rounded border border-gray-300 dark:border-neutral-600 px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400 hover:border-indigo-400 hover:text-indigo-500 dark:hover:border-indigo-500 dark:hover:text-indigo-400 transition-colors"
+              class="rounded border border-gray-300 dark:border-neutral-600 px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400 hover:border-sky-400 hover:text-sky-500 dark:hover:border-sky-500 dark:hover:text-sky-400 transition-colors"
             >
               {{ tagArticle }}
             </NuxtLink>

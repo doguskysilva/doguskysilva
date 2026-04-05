@@ -4,7 +4,7 @@
       <div class="flex gap-5 flex-1 text-sm tracking-wide text-gray-500 dark:text-gray-400">
         <NuxtLink
           to="/"
-          class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
+          class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
         >
           Home
         </NuxtLink>
@@ -12,7 +12,7 @@
           v-for="item in menu"
           :key="item.path"
           :to="item.path"
-          class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
+          class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
         >
           {{ item.name }}
         </NuxtLink>

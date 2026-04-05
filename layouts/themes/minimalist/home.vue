@@ -14,7 +14,7 @@
         <div class="mt-6">
           <NuxtLink
             to="/archives"
-            class="text-sm text-gray-500 dark:text-gray-400 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
+            class="text-sm text-gray-500 dark:text-gray-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
           >
             Read all posts →
           </NuxtLink>
@@ -42,6 +42,6 @@ const description = config.description || 'A minimalist theme for Bloggrify'
 
 <style>
 body {
-  @apply bg-white dark:bg-slate-900 dark:text-white;
+  @apply bg-white dark:bg-zinc-900 dark:text-white;
 }
 </style>

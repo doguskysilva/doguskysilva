@@ -6,7 +6,7 @@
         :to="github"
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
+        class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
       >
         GitHub
       </NuxtLink>
@@ -15,7 +15,7 @@
         to="https://bloggrify.com"
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"
+        class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
       >
         Powered by Bloggrify
       </NuxtLink>
