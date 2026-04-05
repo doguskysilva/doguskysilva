@@ -9,28 +9,28 @@
           <h2 class="text-3xl font-bold">{{ (doc as any).title }}</h2>
         </div>
 
-        <!-- Post metadata: date + reading time + tags -->
-        <div class="mt-4 flex flex-wrap justify-center items-center gap-3 text-sm text-gray-500 dark:text-gray-400">
-          <span v-if="(doc as any).date">
-            {{ formatDate((doc as any).date) }}<template v-if="(doc as any).body"> · {{ readingTime((doc as any).body) }}</template>
-          </span>
-          <div v-if="(doc as any).tags?.length" class="flex flex-wrap gap-1.5">
-            <NuxtLink
-              v-for="tag in (doc as any).tags"
-              :key="tag"
-              :to="`/tags/${tag}`"
-              class="rounded border border-gray-300 dark:border-neutral-600 px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400 hover:border-indigo-400 hover:text-indigo-500 dark:hover:border-indigo-500 dark:hover:text-indigo-400 transition-colors"
-            >
-              {{ tag }}
-            </NuxtLink>
-          </div>
-        </div>
+        <!-- date · reading time -->
+        <p v-if="(doc as any).date" class="mt-3 text-center text-sm text-gray-400 dark:text-gray-500">
+          {{ formatDate((doc as any).date) }}<template v-if="(doc as any).body"> · {{ readingTime((doc as any).body) }}</template>
+        </p>
 
         <ContentRenderer
           id="nuxtContent"
           :value="doc"
           class="prose pt-8 text-sm md:text-base dark:prose-invert max-w-none"
         />
+
+        <!-- tags at the end of the article -->
+        <div v-if="(doc as any).tags?.length" class="mt-10 pt-6 border-t border-gray-200 dark:border-neutral-800 flex flex-wrap gap-2">
+          <NuxtLink
+            v-for="tag in (doc as any).tags"
+            :key="tag"
+            :to="`/tags/${tag}`"
+            class="rounded border border-gray-300 dark:border-neutral-600 px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400 hover:border-indigo-400 hover:text-indigo-500 dark:hover:border-indigo-500 dark:hover:text-indigo-400 transition-colors"
+          >
+            {{ tag }}
+          </NuxtLink>
+        </div>
 
         <CommentSystem :id="(doc as any).id" :nocomments="(doc as any).nocomments" />
       </div>
