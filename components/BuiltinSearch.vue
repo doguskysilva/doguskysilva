@@ -47,11 +47,12 @@ const { data: files, execute, status, error} = await useLazyAsyncData<BlogSearch
     }
 )
 
-// Filter search index to only the current locale
-const { locale } = useI18n()
+// Filter search index to only the current locale, derived from the route path
+const route = useRoute()
 const localFiles = computed(() => {
     const all = files.value ?? []
-    if (locale.value === 'en') {
+    const isEn = route.path.startsWith('/en')
+    if (isEn) {
         return all.filter(f => f.path.startsWith('/en/'))
     }
     return all.filter(f => !f.path.startsWith('/en/'))
