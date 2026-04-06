@@ -6,13 +6,11 @@
 
     <!-- Card format (home page) -->
     <div v-if="format === 'card'" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
-      <div
-        v-for="post in posts"
-        :key="post.id"
-        class="rounded-lg border border-l-2 border-gray-200 dark:border-neutral-700 hover:border-l-sky-500 dark:hover:border-l-sky-400 p-6 transition-colors"
-      >
+      <div v-for="post in posts" :key="post.id"
+        class="rounded-lg border border-l-2 border-gray-200 dark:border-neutral-700 hover:border-l-sky-500 dark:hover:border-l-sky-400 p-6 transition-colors">
         <NuxtLink :to="post.path">
-          <h2 class="text-base font-semibold text-gray-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
+          <h2
+            class="text-base font-semibold text-gray-900 dark:text-white hover:text-sky-600 dark:hover:text-sky-400 transition-colors">
             {{ post.title }}
           </h2>
         </NuxtLink>
@@ -26,12 +24,8 @@
         </p>
 
         <div class="mt-4 flex flex-wrap gap-2">
-          <NuxtLink
-            v-for="tagItem in post.tags"
-            :key="tagItem"
-            :to="localePath(`/tags/${tagItem}`)"
-            class="rounded border border-gray-300 dark:border-neutral-600 px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400 hover:border-sky-400 hover:text-sky-500 dark:hover:border-sky-500 dark:hover:text-sky-400 transition-colors"
-          >
+          <NuxtLink v-for="tagItem in post.tags" :key="tagItem" :to="localePath(`/tags/${tagItem}`)"
+            class="rounded border border-gray-300 dark:border-neutral-600 px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400 hover:border-sky-400 hover:text-sky-500 dark:hover:border-sky-500 dark:hover:text-sky-400 transition-colors">
             {{ tagItem }}
           </NuxtLink>
         </div>
@@ -40,13 +34,10 @@
 
     <!-- List format (blog / tag pages) -->
     <ol v-else class="divide-y divide-gray-200 dark:divide-neutral-800">
-      <li
-        v-for="post in posts"
-        :key="post.path"
-        class="py-5"
-      >
+      <li v-for="post in posts" :key="post.path" class="py-5">
         <NuxtLink :to="post.path" class="group block">
-          <div class="text-base font-medium text-gray-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
+          <div
+            class="text-base font-medium text-gray-900 dark:text-white group-hover:text-sky-600 dark:group-hover:text-sky-400 transition-colors">
             {{ post.title }}
           </div>
           <div v-if="post.description" class="mt-1 text-sm text-gray-500 dark:text-gray-400">
@@ -58,12 +49,8 @@
             {{ formatDate(post.date) }}<template v-if="post.readingTime"> · {{ post.readingTime }} min</template>
           </span>
           <div v-if="post.tags?.length" class="flex flex-wrap gap-1.5">
-            <NuxtLink
-              v-for="tagItem in post.tags"
-              :key="tagItem"
-              :to="localePath(`/tags/${tagItem}`)"
-              class="rounded border border-gray-300 dark:border-neutral-600 px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400 hover:border-sky-400 hover:text-sky-500 dark:hover:border-sky-500 dark:hover:text-sky-400 transition-colors"
-            >
+            <NuxtLink v-for="tagItem in post.tags" :key="tagItem" :to="localePath(`/tags/${tagItem}`)"
+              class="rounded border border-gray-300 dark:border-neutral-600 px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400 hover:border-sky-400 hover:text-sky-500 dark:hover:border-sky-500 dark:hover:text-sky-400 transition-colors">
               {{ tagItem }}
             </NuxtLink>
           </div>
@@ -100,8 +87,8 @@ const id = computed(() => [
 
 const { data: posts } = await useAsyncData(id, () => {
   let query = queryCollection(collection.value)
-    .where('listed', '<>', false)
-    .where('draft', '<>', true)
+    .where('listed', '=', true)
+    .where('draft', '=', false)
     .order('date', 'DESC')
     .skip((currentPage.value - 1) * itemsPerPage.value)
     .limit(itemsPerPage.value)
@@ -118,8 +105,8 @@ const { data: posts } = await useAsyncData(id, () => {
 
 const { data: totalCount } = await useAsyncData(`${id.value}-count`, () => {
   let query = queryCollection(collection.value)
-    .where('listed', '<>', false)
-    .where('draft', '<>', true)
+    .where('listed', '=', true)
+    .where('draft', '=', false)
 
   if (props.category) {
     query = query.where('categories', 'LIKE', `%${props.category}%`)

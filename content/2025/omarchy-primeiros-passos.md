@@ -3,6 +3,7 @@ id: 2f9f9961-2af4-4cad-9c09-4b8ffbc49ac3
 title: "Omarchy: primeiros passos"
 description: "Minha experiência migrando para o Omarchy, configurando meu setup de desenvolvimento e ajustando ferramentas como ZSH, Neovim e Tmux."
 date: "2025-10-13"
+listed: true
 categories:
   - linux
   - desenvolvimento

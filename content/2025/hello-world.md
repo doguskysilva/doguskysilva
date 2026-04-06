@@ -3,6 +3,7 @@ id: ecdde203-4a3f-471b-b6f3-ed9a5e699074
 title: "Hello World!"
 description: "Por que decidi compartilhar minhas anotações e como construí este blog pessoal usando Nuxt e Markdown."
 date: "2025-10-12"
+listed: true
 categories:
   - pessoal
   - aprendizado

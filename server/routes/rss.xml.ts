@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
   const now = new Date()
 
   const posts = await queryCollection(event, 'posts_pt')
-    .where('listed', '<>', false)
+    .where('listed', '=', true)
     .where('draft', '<>', true)
     .order('date', 'DESC')
     .all()
