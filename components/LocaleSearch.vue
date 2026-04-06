@@ -3,13 +3,11 @@ import { useFuse } from '@vueuse/integrations/useFuse'
 import { useFocusTrap } from '@vueuse/integrations/useFocusTrap'
 import { useMagicKeys } from '@vueuse/core'
 
-type SearchSection = {
+type SearchPage = {
   id: string
   title: string
-  content: string
-  titles: string[]
-  level: number
   path: string
+  content: string
   description?: string
 }
 
@@ -23,9 +21,9 @@ const { activate, deactivate } = useFocusTrap(searchContentRef)
 const { meta_K, Escape } = useMagicKeys()
 
 const SEARCH_DATA_KEY = 'search-api'
-const cachedResults = useNuxtData<SearchSection[]>(SEARCH_DATA_KEY)
+const cachedResults = useNuxtData<SearchPage[]>(SEARCH_DATA_KEY)
 
-const { data: sections, execute, status, error } = await useLazyAsyncData<SearchSection[]>(
+const { data: pages, execute, status, error } = await useLazyAsyncData<SearchPage[]>(
   SEARCH_DATA_KEY,
   () => $fetch('/api/search', { parseResponse: JSON.parse }),
   {
@@ -38,7 +36,7 @@ const route = useRoute()
 const { t } = useI18n()
 
 const localeSections = computed(() => {
-  const all = sections.value || []
+  const all = pages.value || []
   const isEn = route.path.startsWith('/en')
 
   if (isEn) {
@@ -48,9 +46,9 @@ const localeSections = computed(() => {
   return all.filter((item) => !item.path.startsWith('/en/'))
 })
 
-const { results } = useFuse<SearchSection>(q, localeSections as unknown, {
+const { results } = useFuse<SearchPage>(q, localeSections as unknown, {
   fuseOptions: {
-    keys: ['title', 'description', 'titles', 'content'],
+    keys: ['title', 'description', 'content'],
     ignoreLocation: true,
     threshold: 0.25,
     includeMatches: true,

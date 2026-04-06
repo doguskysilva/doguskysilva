@@ -35,4 +35,4 @@ I went with the ISO, which already comes with a default setup using BTRFS, Limin
 
 ---
 
-*The rest of this article — covering ZSH, Tmux, and Neovim post-installation tweaks — is available in the [Portuguese version](/2025/omarchy-primeiros-passos).*
+*The rest of this article — covering ZSH, Tmux, and Neovim post-installation tweaks — is available in the [Portuguese version](/pt/blog/2025/omarchy-primeiros-passos).*

@@ -40,6 +40,8 @@
 </template>
 
 <script setup lang="ts">
+import { toContentPath } from '~/utils/blogPath'
+
 const props = defineProps({
   showChildren: {
     type: Boolean,
@@ -58,7 +60,7 @@ const cleanPath = computed(() => {
   if (path === '' || path === '/') {
     return '/'
   }
-  return path.replace(/\/$/, '') || '/'
+  return toContentPath(path.replace(/\/$/, '') || '/')
 })
 
 const { data: doc } = await useAsyncData(

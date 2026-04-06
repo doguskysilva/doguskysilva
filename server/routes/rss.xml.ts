@@ -1,5 +1,6 @@
 import { Feed } from 'feed'
 import { withLeadingSlash, withoutTrailingSlash } from 'ufo'
+import { toPublicPath } from '~~/utils/blogPath'
 
 type FeedDoc = {
   title?: string
@@ -38,7 +39,7 @@ export default defineEventHandler(async (event) => {
       return
     }
 
-    const path = post.path
+    const path = toPublicPath(post.path)
     feed.addItem({
       title: post.title || '-',
       id: withoutTrailingSlash(url + path),

@@ -10,7 +10,7 @@
         :key="article.id"
         class="rounded-lg border border-l-2 border-gray-200 p-6 transition-colors hover:border-l-sky-500 dark:border-neutral-700 dark:hover:border-l-sky-400"
       >
-        <NuxtLink :to="article.path">
+        <NuxtLink :to="postPath(article.path)">
           <h2 class="text-base font-semibold text-gray-900 transition-colors hover:text-sky-600 dark:text-white dark:hover:text-sky-400">
             {{ article.title }}
           </h2>
@@ -39,7 +39,7 @@
 
     <ol v-else class="divide-y divide-gray-200 dark:divide-neutral-800">
       <li v-for="article in docs" :key="article.path" class="py-5">
-        <NuxtLink :to="article.path" class="group block">
+        <NuxtLink :to="postPath(article.path)" class="group block">
           <div class="text-base font-medium text-gray-900 transition-colors group-hover:text-sky-600 dark:text-white dark:group-hover:text-sky-400">
             {{ article.title }}
           </div>
@@ -72,6 +72,7 @@
 <script setup lang="ts">
 import { readingTime } from '~/composables/useReadingTime'
 import { formatDate } from '~/composables/useDateFormat'
+import { toPublicPath } from '~/utils/blogPath'
 
 type ListingPost = {
   id: string
@@ -150,5 +151,9 @@ function displayDate(date?: string): string {
 
   const localeDate = locale.value === 'en' ? 'en-US' : 'pt-BR'
   return formatDate(`${date}T00:00:00`, localeDate)
+}
+
+function postPath(path: string): string {
+  return toPublicPath(path)
 }
 </script>

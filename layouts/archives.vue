@@ -19,5 +19,5 @@ const props = defineProps<{
 }>()
 
 const { t } = useI18n()
-const title = computed(() => (props.category ? `Category: ${props.category}` : t('archives.title')))
+const title = computed(() => (props.category ? `Category: ${props.category}` : t('blog.title')))
 </script>

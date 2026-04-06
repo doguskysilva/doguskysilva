@@ -4,6 +4,7 @@
 
 <script setup lang="ts">
 import { joinURL, withoutTrailingSlash } from 'ufo'
+import { isLegacyPostPath, toContentPath, toPublicPath } from '~/utils/blogPath'
 
 type SurroundingItem = {
   path: string
@@ -30,13 +31,19 @@ const runtimeConfig = useRuntimeConfig()
 
 const collectionName = computed(() => (route.path.startsWith('/en') ? 'posts_en' : 'posts'))
 
-const pagePath = computed(() => {
+const routePath = computed(() => {
   const path = route.path.replace(/\/page\/\d+$/, '')
   if (path === '' || path === '/') {
     return '/'
   }
   return path.replace(/\/$/, '') || '/'
 })
+
+if (isLegacyPostPath(routePath.value)) {
+  await navigateTo(toPublicPath(routePath.value), { redirectCode: 301 })
+}
+
+const pagePath = computed(() => toContentPath(routePath.value))
 
 const { data: doc } = await useAsyncData<PageDoc | null>(
   () => `page:${route.path}`,
@@ -75,7 +82,7 @@ const { data: surroundings } = await useAsyncData<SurroundingItem[]>(
 )
 
 const siteUrl = withoutTrailingSlash(runtimeConfig.public.url || config.url)
-const canonicalUrl = computed(() => withoutTrailingSlash(joinURL(siteUrl, doc.value?.path || '/')))
+const canonicalUrl = computed(() => withoutTrailingSlash(joinURL(siteUrl, toPublicPath(doc.value?.path || '/'))))
 const author = findAuthor(doc.value?.author)
 
 useSeoMeta({
@@ -111,7 +118,7 @@ const hreflangLinks = computed(() => {
   return (doc.value?.alternates || []).map((item) => ({
     rel: 'alternate',
     hreflang: item.hreflang,
-    href: item.href.startsWith('http') ? item.href : joinURL(siteUrl, item.href),
+    href: item.href.startsWith('http') ? item.href : joinURL(siteUrl, toPublicPath(item.href)),
   }))
 })
 

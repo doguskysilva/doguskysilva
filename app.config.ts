@@ -31,6 +31,6 @@ export default defineAppConfig({
   ],
   menu: [
     { name: 'About', path: '/about' },
-    { name: 'Archives', path: '/archives' },
+    { name: 'Blog', path: '/blog' },
   ],
 })

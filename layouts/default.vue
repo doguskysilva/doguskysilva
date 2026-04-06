@@ -31,7 +31,7 @@
         <div v-if="hasSurroundings" class="mt-10 grid grid-cols-1 gap-4 border-t border-gray-200 pt-6 dark:border-neutral-800 md:grid-cols-2">
           <NuxtLink
             v-if="surroundings?.[0]"
-            :to="surroundings[0].path"
+            :to="surroundingPath(surroundings[0].path)"
             class="rounded border border-gray-200 p-4 text-sm transition-colors hover:border-sky-400 dark:border-neutral-700"
           >
             <div class="text-xs text-gray-400">Previous</div>
@@ -41,7 +41,7 @@
 
           <NuxtLink
             v-if="surroundings?.[1]"
-            :to="surroundings[1].path"
+            :to="surroundingPath(surroundings[1].path)"
             class="rounded border border-gray-200 p-4 text-sm transition-colors hover:border-sky-400 dark:border-neutral-700"
           >
             <div class="text-right text-xs text-gray-400">Next</div>
@@ -61,6 +61,7 @@
 import Toc from '~/components/content/Toc.vue'
 import { formatDate } from '~/composables/useDateFormat'
 import { readingTime } from '~/composables/useReadingTime'
+import { toPublicPath } from '~/utils/blogPath'
 
 type PageDoc = {
   id?: string
@@ -87,6 +88,10 @@ const hasSurroundings = computed(() => Boolean(surroundings.value?.[0] || surrou
 
 function displayDate(date: string): string {
   return formatDate(`${date}T00:00:00`, locale.value === 'en' ? 'en-US' : 'pt-BR')
+}
+
+function surroundingPath(path: string): string {
+  return toPublicPath(path)
 }
 </script>
 
