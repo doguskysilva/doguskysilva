@@ -11,5 +11,10 @@
   },
   "archives": {
     "title": "All Posts"
+  },
+  "ui": {
+    "search": "Search",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode"
   }
 }

@@ -47,6 +47,8 @@ const { data: files, execute, status, error} = await useLazyAsyncData<BlogSearch
     }
 )
 
+const { t } = useI18n()
+
 // Filter search index to only the current locale, derived from the route path
 const route = useRoute()
 const localFiles = computed(() => {
@@ -193,24 +195,26 @@ watch(Escape, () => {
     <button
         class="border-gray-200 border p-1 px-2 rounded-lg text-sm hover:border-gray-400 flex items-center justify-center gap-1 dark:text-slate-100 hover:dark:text-slate-400"
         type="button"
-        aria-label="Search"
+        :aria-label="t('ui.search')"
         @click="showSearch"
     >
         <svg class="w-3 h-3 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
         </svg>
-        <span>Search</span>
+        <span>{{ t('ui.search') }}</span>
     </button>
 
     <!-- eslint-disable-next-line vue/no-multiple-template-root -->
     <teleport to="body">
+        <Transition name="search-backdrop">
         <div
             v-if="show"
             ref="searchContentRef"
             class="bg-slate-600 bg-opacity-75 fixed top-0 right-0 bottom-0 left-0 z-50 flex justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
             @click="show = false"
         >
-            <div class="relative p-4 w-full max-w-2xl overflow-auto max-h-2xl">
+            <Transition name="search-modal" appear>
+            <div v-if="show" class="relative p-4 w-full max-w-2xl overflow-auto max-h-2xl">
                 <div
                     class="relative bg-white rounded-lg shadow dark:bg-gray-700 dark:border-gray-600 dark:border"
                     @click.stop
@@ -285,7 +289,9 @@ watch(Escape, () => {
                     </div>
                 </div>
             </div>
+            </Transition>
         </div>
+        </Transition>
     </teleport>
 </template>
 
@@ -311,5 +317,24 @@ watch(Escape, () => {
 
 .search-result-content-preview {
     @apply truncate relative text-slate-400 text-sm;
+}
+
+.search-backdrop-enter-active,
+.search-backdrop-leave-active {
+    transition: opacity 0.2s ease;
+}
+.search-backdrop-enter-from,
+.search-backdrop-leave-to {
+    opacity: 0;
+}
+
+.search-modal-enter-active,
+.search-modal-leave-active {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.search-modal-enter-from,
+.search-modal-leave-to {
+    opacity: 0;
+    transform: translateY(-12px) scale(0.98);
 }
 </style>
