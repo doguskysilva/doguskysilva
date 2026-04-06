@@ -3,7 +3,7 @@
     <MinimalistHeader />
     <MinimalistMenu />
 
-    <main class="mt-10 w-full max-w-2xl mx-6 lg:mx-auto px-4 lg:px-0">
+    <main class="mt-10 max-w-2xl mx-auto w-full px-6">
       <div v-if="doc">
         <div class="text-center">
           <h2 class="text-3xl font-bold">{{ (doc as any).title }}</h2>
@@ -72,6 +72,11 @@ function formatDate(date: string): string {
   h5 a,
   h6 a {
     @apply no-underline;
+  }
+
+  pre {
+    overflow-x: auto;
+    max-width: 100%;
   }
 }
 </style>
