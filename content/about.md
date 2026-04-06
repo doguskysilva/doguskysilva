@@ -6,7 +6,7 @@ listed: false
 language: "pt"
 alternates:
   - hreflang: "pt"
-    href: "/about"
+    href: "/pt/about"
   - hreflang: "en"
     href: "/en/about"
 ---

@@ -12,12 +12,12 @@
       </NuxtLink>
       <span v-if="github" aria-hidden="true">·</span>
       <NuxtLink
-        to="https://bloggrify.com"
+        to="https://content.nuxt.com"
         target="_blank"
         rel="noopener noreferrer"
         class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
       >
-        Powered by Bloggrify
+        Powered by Nuxt Content
       </NuxtLink>
     </div>
   </footer>

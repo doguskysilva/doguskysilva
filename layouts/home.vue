@@ -1,7 +1,7 @@
 <template>
   <div>
-    <MinimalistHeader />
-    <MinimalistMenu />
+    <AppHeader />
+    <AppMenu />
 
     <main class="mt-10 w-3/4 mx-auto">
       <div class="mt-4 text-gray-600 dark:text-gray-400">
@@ -9,11 +9,11 @@
       </div>
 
       <div class="mt-10">
-        <MinimalistListing :title="t('home.lastPosts')" />
+        <PostList :title="t('home.lastPosts')" />
 
         <div class="mt-6">
           <NuxtLink
-            :to="localePath('/archives')"
+            :to="localePath('/blog')"
             class="text-sm text-gray-500 dark:text-gray-400 hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
           >
             {{ t('home.readAllPosts') }}
@@ -22,16 +22,11 @@
       </div>
     </main>
 
-    <MinimalistFooter />
+    <AppFooter />
   </div>
 </template>
 
 <script setup lang="ts">
-import MinimalistMenu from '~/components/MinimalistMenu.vue'
-import MinimalistFooter from '~/components/MinimalistFooter.vue'
-import MinimalistHeader from '~/components/MinimalistHeader.vue'
-import MinimalistListing from '~/components/content/MinimalistListing.vue'
-
 defineProps<{
   doc: unknown
 }>()
