@@ -69,4 +69,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Call Dokploy webhook
-        run: curl -s -X GET "${{ secrets.DOKPLOY_DOGUSKYSILVA_WEBHOOK_URL }}"
+        env:
+          WEBHOOK_URL: ${{ secrets.DOKPLOY_DOGUSKYSILVA_WEBHOOK_URL }}
+        run: |
+          if [ -z "$WEBHOOK_URL" ]; then
+            echo "Error: DOKPLOY_DOGUSKYSILVA_WEBHOOK_URL secret is not set"
+            exit 1
+          fi
+          curl -fX GET "$WEBHOOK_URL"
