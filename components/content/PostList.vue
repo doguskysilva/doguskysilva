@@ -27,12 +27,12 @@
 
         <div class="mt-4 flex flex-wrap gap-2">
           <NuxtLink
-            v-for="tag in post.tags"
-            :key="tag"
-            :to="localePath(`/tags/${tag}`)"
+            v-for="tagItem in post.tags"
+            :key="tagItem"
+            :to="localePath(`/tags/${tagItem}`)"
             class="rounded border border-gray-300 dark:border-neutral-600 px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400 hover:border-sky-400 hover:text-sky-500 dark:hover:border-sky-500 dark:hover:text-sky-400 transition-colors"
           >
-            {{ tag }}
+            {{ tagItem }}
           </NuxtLink>
         </div>
       </div>
@@ -59,12 +59,12 @@
           </span>
           <div v-if="post.tags?.length" class="flex flex-wrap gap-1.5">
             <NuxtLink
-              v-for="tag in post.tags"
-              :key="tag"
-              :to="localePath(`/tags/${tag}`)"
+              v-for="tagItem in post.tags"
+              :key="tagItem"
+              :to="localePath(`/tags/${tagItem}`)"
               class="rounded border border-gray-300 dark:border-neutral-600 px-2 py-0.5 text-xs text-gray-500 dark:text-gray-400 hover:border-sky-400 hover:text-sky-500 dark:hover:border-sky-500 dark:hover:text-sky-400 transition-colors"
             >
-              {{ tag }}
+              {{ tagItem }}
             </NuxtLink>
           </div>
         </div>

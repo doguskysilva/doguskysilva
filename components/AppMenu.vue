@@ -112,18 +112,6 @@
   </nav>
 </template>
 
-<style scoped>
-.menu-enter-active,
-.menu-leave-active {
-  transition: opacity 0.2s ease, transform 0.2s ease;
-}
-.menu-enter-from,
-.menu-leave-to {
-  opacity: 0;
-  transform: translateY(-6px);
-}
-</style>
-
 <script setup lang="ts">
 import { useDark, useToggle } from '@vueuse/core'
 
@@ -143,3 +131,15 @@ const switchLocalePath = useSwitchLocalePath()
 const route = useRoute()
 watch(() => route.path, () => { menuOpen.value = false })
 </script>
+
+<style scoped>
+.menu-enter-active,
+.menu-leave-active {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.menu-enter-from,
+.menu-leave-to {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+</style>

@@ -43,5 +43,6 @@ const { data: page } = await useAsyncData(`toc-${route.path}`, () =>
 )
 
 type TocLink = { id: string; text: string; depth: number; children?: TocLink[] }
-const links = computed<TocLink[]>(() => (page.value as any)?.body?.toc?.links ?? [])
+type PageBody = { toc?: { links?: TocLink[] } }
+const links = computed<TocLink[]>(() => (page.value?.body as PageBody | undefined)?.toc?.links ?? [])
 </script>

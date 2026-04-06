@@ -3,6 +3,15 @@
 </template>
 
 <script setup lang="ts">
+type PageData = {
+  title?: string
+  description?: string
+  layout?: string
+  date?: string
+  tags?: string[]
+  alternates?: { hreflang: string; href: string }[]
+}
+
 const route = useRoute()
 const { locale } = useI18n()
 
@@ -25,44 +34,42 @@ if (!page.value || error.value) {
   throw createError({ statusCode: 404, statusMessage: 'Page not found', fatal: true })
 }
 
+const p = page.value as PageData
+
 const layoutName = computed(() => {
-  const l = (page.value as any)?.layout
-  if (!l || l === 'default') return 'default'
-  return l
+  const l = (page.value as PageData)?.layout
+  return (!l || l === 'default') ? 'default' : l
 })
 
 // SEO
-const config = useAppConfig()
-const baseUrl = (config as any).url || ''
+const config = useAppConfig() as { url?: string }
+const baseUrl = config.url || ''
 
 useSeoMeta({
-  title: (page.value as any).title,
-  description: (page.value as any).description,
-  ogTitle: (page.value as any).title,
-  ogDescription: (page.value as any).description,
+  title: p.title,
+  description: p.description,
+  ogTitle: p.title,
+  ogDescription: p.description,
   ogType: 'article',
   ogUrl: baseUrl + route.path,
-  twitterTitle: (page.value as any).title,
+  twitterTitle: p.title,
   twitterCard: 'summary',
 })
 
-if ((page.value as any).date) {
+if (p.date) {
   useSeoMeta({
-    articlePublishedTime: new Date((page.value as any).date).toISOString(),
+    articlePublishedTime: new Date(p.date).toISOString(),
   })
 }
 
 // hreflang alternates
-const alternates = (page.value as any).alternates as { hreflang: string, href: string }[] | undefined
-if (alternates?.length) {
+if (p.alternates?.length) {
   useHead({
-    link: [
-      ...alternates.map(alt => ({
-        rel: 'alternate',
-        hreflang: alt.hreflang,
-        href: baseUrl + alt.href,
-      })),
-    ],
+    link: p.alternates.map(alt => ({
+      rel: 'alternate',
+      hreflang: alt.hreflang,
+      href: baseUrl + alt.href,
+    })),
   })
 }
 </script>
