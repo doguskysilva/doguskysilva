@@ -62,3 +62,11 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
+
+  dokploy:
+    name: Trigger Dokploy deployment
+    needs: [docker]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Call Dokploy webhook
+        run: curl -s -X GET "${{ secrets.DOKPLOY_WEBHOOK_URL }}"
