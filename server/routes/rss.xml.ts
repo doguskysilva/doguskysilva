@@ -1,4 +1,4 @@
-import { serverQueryCollection } from '#content/server'
+import { queryCollection } from '@nuxt/content/server'
 import { Feed } from 'feed'
 
 export default defineEventHandler(async (event) => {
@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
   const url = (config.url || '').replace(/\/$/, '')
   const now = new Date()
 
-  const posts = await serverQueryCollection(event, 'posts_pt')
+  const posts = await queryCollection(event, 'posts_pt')
     .where('listed', '<>', false)
     .where('draft', '<>', true)
     .order('date', 'DESC')

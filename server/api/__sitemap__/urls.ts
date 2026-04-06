@@ -1,13 +1,13 @@
-import { serverQueryCollection } from '#content/server'
+import { queryCollection } from '@nuxt/content/server'
 
 export default defineEventHandler(async (event) => {
   const [ptPosts, enPosts] = await Promise.all([
-    serverQueryCollection(event, 'posts_pt')
+    queryCollection(event, 'posts_pt')
       .where('listed', '<>', false)
       .where('draft', '<>', true)
       .select('path', 'date', 'alternates')
       .all(),
-    serverQueryCollection(event, 'posts_en')
+    queryCollection(event, 'posts_en')
       .where('listed', '<>', false)
       .where('draft', '<>', true)
       .select('path', 'date', 'alternates')
