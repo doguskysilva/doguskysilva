@@ -47,6 +47,29 @@ describe('extractText', () => {
   it('ignores nodes without type or children', () => {
     expect(extractText({ random: 'key' })).toBe('')
   })
+
+  it('extracts minimark body nodes from Nuxt Content v3', () => {
+    const minimark = {
+      type: 'minimark',
+      value: [
+        ['h2', { id: 'a' }, 'Title'],
+        ['p', {}, 'Hello', ['br', {}], 'world'],
+      ],
+    }
+
+    expect(extractText(minimark)).toContain('Title')
+    expect(extractText(minimark)).toContain('Hello')
+    expect(extractText(minimark)).toContain('world')
+  })
+
+  it('extracts from serialized minimark JSON string', () => {
+    const serialized = JSON.stringify({
+      type: 'minimark',
+      value: [['p', {}, 'Serialized content']],
+    })
+
+    expect(extractText(serialized)).toContain('Serialized content')
+  })
 })
 
 describe('readingTime', () => {

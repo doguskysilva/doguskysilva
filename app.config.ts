@@ -1,35 +1,36 @@
 export default defineAppConfig({
   url: 'https://dogusky.netlify.app',
   language: 'pt-br',
-  avatar: "/images/me.jpeg",
+  avatar: '/images/me.jpeg',
   description: "I'm Doug, Software Engineer, passionate about technology, programming, and uncovering how things truly work",
-  theme: 'minimalist',
   name: 'Doug',
+  pagination: {
+    per_page: 6,
+  },
   table_of_contents: true,
   toc: {
-    showChildren: true
+    showChildren: true,
   },
   socials: {
     github: 'https://github.com/doguskysilva',
     linkedin: '',
-    sharing_networks: ['facebook', 'twitter', 'linkedin']
+    sharing_networks: ['facebook', 'twitter', 'linkedin'],
   },
   authors: [
     {
-      name: "Douglas Silva", 
-      username: "doguskysilva",
-      description: "",
-      avatar: "/images/me.jpeg",
+      default: true,
+      name: 'Douglas Silva',
+      username: 'doguskysilva',
+      description: '',
+      avatar: '/images/me.jpeg',
       socials: {
         github: 'https://github.com/doguskysilva',
-        linkedin: ''
-      }
-    }
+        linkedin: '',
+      },
+    },
   ],
-
   menu: [
-    //{ name: 'Portfolio', path: '/portfolio'},
-    { name: 'About', path: '/about'},
-    { name: 'Archives', path: '/archives'},
+    { name: 'About', path: '/about' },
+    { name: 'Archives', path: '/archives' },
   ],
 })
