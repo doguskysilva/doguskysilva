@@ -14,7 +14,16 @@ export default defineNuxtConfig({
     '@nuxtjs/sitemap',
     'nuxt-schema-org',
     '@vueuse/nuxt',
+    'nuxt-studio',
   ],
+  studio: {
+    repository: {
+      provider: 'github',
+      owner: 'doguskysilva',
+      repo: 'doguskysilva',
+      branch: 'main',
+    },
+  },
   css: ['~/assets/css/main.css'],
   runtimeConfig: {
     public: {

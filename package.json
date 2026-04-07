@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "nuxi dev",
     "build": "nuxi build",
+    "start": "node .output/server/index.mjs",
     "generate": "nuxi generate",
     "preview": "nuxi preview",
     "posts": "./scripts/blog-posts.sh",
@@ -27,6 +28,7 @@
     "fuse.js": "^7.1.0",
     "nuxt": "^4.1.2",
     "nuxt-schema-org": "^5.0.9",
+    "nuxt-studio": "^1.5.1",
     "rehype-katex": "^7.0.1",
     "remark-math": "^6.0.0",
     "remark-reading-time": "^2.0.1",
