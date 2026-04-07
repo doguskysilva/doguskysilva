@@ -2,15 +2,15 @@
   "nav": {
     "home": "Home",
     "about": "About",
-    "archives": "Archives"
+    "posts": "Posts"
   },
   "home": {
     "description": "I'm Doug, Software Engineer, passionate about technology, programming, and uncovering how things truly work.",
     "lastPosts": "Last Posts",
-    "readAllPosts": "Read all posts →"
+    "readAllPosts": "All posts →"
   },
-  "archives": {
-    "title": "All Posts"
+  "posts": {
+    "title": "Posts"
   },
   "ui": {
     "search": "Search",

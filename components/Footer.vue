@@ -1,23 +1,24 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
-  <footer class="mt-16 border-t border-gray-200 dark:border-neutral-800 py-8">
-    <div class="w-3/4 mx-auto flex justify-center items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
+  <footer class="mt-16 border-t border-gray-200 py-8 dark:border-neutral-800">
+    <div class="mx-auto flex w-3/4 items-center justify-center gap-4 text-sm text-gray-500 dark:text-gray-400">
       <NuxtLink
         v-if="github"
         :to="github"
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
+        class="transition-colors hover:text-sky-500 dark:hover:text-sky-400"
       >
         GitHub
       </NuxtLink>
       <span v-if="github" aria-hidden="true">·</span>
       <NuxtLink
-        to="https://bloggrify.com"
+        to="https://content.nuxt.com"
         target="_blank"
         rel="noopener noreferrer"
-        class="hover:text-sky-500 dark:hover:text-sky-400 transition-colors"
+        class="transition-colors hover:text-sky-500 dark:hover:text-sky-400"
       >
-        Powered by Bloggrify
+        Powered by Nuxt Content
       </NuxtLink>
     </div>
   </footer>

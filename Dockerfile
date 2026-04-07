@@ -3,9 +3,10 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm ci
 COPY . .
-RUN npm run generate
+RUN npm run build
 
-FROM nginx:alpine AS production
-COPY --from=builder /app/.output/public /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+FROM node:22-alpine AS production
+WORKDIR /app
+COPY --from=builder /app/.output ./
+EXPOSE 3000
+CMD ["node", "server/index.mjs"]
