@@ -1,4 +1,4 @@
-import { toPublicPath } from '~~/utils/blogPath'
+import { toPublicPath } from '~~/utils/postPath'
 
 export default defineEventHandler(async (event) => {
   const [postsPt, postsEn] = await Promise.all([

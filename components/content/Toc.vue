@@ -40,7 +40,7 @@
 </template>
 
 <script setup lang="ts">
-import { toContentPath } from '~/utils/blogPath'
+import { toContentPath } from '~/utils/postPath'
 
 const props = defineProps({
   showChildren: {

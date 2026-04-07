@@ -1,4 +1,4 @@
-import { toPublicPath } from '~~/utils/blogPath'
+import { toPublicPath } from '~~/utils/postPath'
 
 type SearchSection = {
   path: string

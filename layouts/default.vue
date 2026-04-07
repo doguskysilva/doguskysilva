@@ -61,7 +61,7 @@
 import Toc from '~/components/content/Toc.vue'
 import { formatDate } from '~/composables/useDateFormat'
 import { readingTime } from '~/composables/useReadingTime'
-import { toPublicPath } from '~/utils/blogPath'
+import { toPublicPath } from '~/utils/postPath'
 
 type PageDoc = {
   id?: string

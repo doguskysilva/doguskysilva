@@ -1,8 +1,8 @@
 import { Feed } from 'feed'
 import { withLeadingSlash, withoutTrailingSlash } from 'ufo'
-import { toPublicPath } from '~~/utils/blogPath'
+import { toPublicPath } from '~~/utils/postPath'
 
-type FeedDoc = {
+type FeedPost = {
   title?: string
   description?: string
   date?: string
@@ -20,7 +20,7 @@ export default defineEventHandler(async (event) => {
     queryCollection(event, 'posts_en').where('listed', '=', true).where('draft', '=', false).order('date', 'DESC').all(),
   ])
 
-  const docs = [...(postsPt as FeedDoc[]), ...(postsEn as FeedDoc[])].filter((post) => Boolean(post.date))
+  const posts = [...(postsPt as FeedPost[]), ...(postsEn as FeedPost[])].filter((post) => Boolean(post.date))
 
   const now = new Date()
   const feed = new Feed({
@@ -34,7 +34,7 @@ export default defineEventHandler(async (event) => {
     generator: 'nuxt-content',
   })
 
-  docs.forEach((post) => {
+  posts.forEach((post) => {
     if (!post.date) {
       return
     }

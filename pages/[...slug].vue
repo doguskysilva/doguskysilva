@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { joinURL, withoutTrailingSlash } from 'ufo'
-import { isLegacyPostPath, toContentPath, toPublicPath } from '~/utils/blogPath'
+import { isLegacyPostPath, toContentPath, toPublicPath } from '~/utils/postPath'
 
 type SurroundingItem = {
   path: string

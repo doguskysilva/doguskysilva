@@ -30,7 +30,7 @@ export default defineAppConfig({
     },
   ],
   menu: [
-    { name: 'About', path: '/about' },
     { name: 'posts', path: '/posts' },
+    { name: 'about', path: '/about' },
   ],
 })

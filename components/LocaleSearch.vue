@@ -252,7 +252,7 @@ watch(Escape, () => {
               </div>
 
               <div v-else-if="!q" class="search-results empty dark:text-slate-100">
-                Type your query to search docs
+                Type your query to search posts
               </div>
 
               <div v-else class="flex h-32 flex-col items-center justify-center overflow-auto dark:text-slate-100">
