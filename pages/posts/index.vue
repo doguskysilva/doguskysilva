@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout name="archives" fallback="default" />
+  <NuxtLayout name="posts" fallback="default" />
 </template>
 
 <script setup lang="ts">
