@@ -13,7 +13,7 @@
 
         <div class="mt-6">
           <NuxtLink
-            :to="localePath('/blog')"
+            :to="localePath('/posts')"
             class="text-sm text-gray-500 transition-colors hover:text-sky-500 dark:text-gray-400 dark:hover:text-sky-400"
           >
             {{ t('home.readAllPosts') }}

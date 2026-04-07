@@ -2,15 +2,15 @@
   "nav": {
     "home": "Início",
     "about": "Sobre",
-    "blog": "Blog"
+    "posts": "Posts"
   },
   "home": {
     "description": "Sou Doug, Engenheiro de Software, apaixonado por tecnologia, programação e por entender como as coisas realmente funcionam.",
     "lastPosts": "Últimas Publicações",
     "readAllPosts": "Todos os posts"
   },
-  "blog": {
-    "title": "Blog"
+  "posts": {
+    "title": "Posts"
   },
   "ui": {
     "search": "Buscar",

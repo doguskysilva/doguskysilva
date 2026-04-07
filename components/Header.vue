@@ -12,6 +12,6 @@
 import LocaleSearch from '~/components/LocaleSearch.vue'
 
 const config = useAppConfig()
-const title = config.name || 'Blog'
+const title = config.name || 'Posts'
 const localePath = useLocalePath()
 </script>

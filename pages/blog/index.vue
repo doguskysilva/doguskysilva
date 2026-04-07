@@ -1,17 +1,5 @@
-<template>
-  <NuxtLayout name="archives" fallback="default" />
-</template>
-
 <script setup lang="ts">
-const title = 'Blog'
-const description = 'List of all posts'
+const route = useRoute()
 
-useSeoMeta({
-  title,
-  description,
-  ogTitle: title,
-  ogDescription: description,
-  twitterTitle: title,
-  twitterDescription: description,
-})
+await navigateTo(route.fullPath.replace(/\/blog(?=\/|$)/, '/posts'), { redirectCode: 301 })
 </script>

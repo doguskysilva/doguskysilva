@@ -39,6 +39,10 @@ const routePath = computed(() => {
   return path.replace(/\/$/, '') || '/'
 })
 
+if (/^\/(?:en|pt)\/blog\/|^\/blog\//.test(route.path)) {
+  await navigateTo(route.fullPath.replace(/\/blog(?=\/)/, '/posts'), { redirectCode: 301 })
+}
+
 if (isLegacyPostPath(routePath.value)) {
   await navigateTo(toPublicPath(routePath.value), { redirectCode: 301 })
 }

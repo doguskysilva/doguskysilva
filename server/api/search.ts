@@ -31,12 +31,12 @@ export default defineEventHandler(async (event) => {
       .where('draft', '=', false),
   ])
 
-  const BLOG_POST_PATH_RE = /^\/(?:en\/)?blog\/\d{4}\//
+  const POSTS_PATH_RE = /^\/(?:en|pt)\/posts\/\d{4}\//
   const byPath = new Map<string, SearchPage>()
 
   for (const section of [...ptSections, ...enSections] as SearchSection[]) {
     const path = toPublicPath(section.path)
-    if (!BLOG_POST_PATH_RE.test(path)) {
+    if (!POSTS_PATH_RE.test(path)) {
       continue
     }
 
