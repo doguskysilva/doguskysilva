@@ -3,6 +3,7 @@ id: 44b9ca15-2b61-484f-823e-5c0b6df677e6
 title: "Hello World!"
 description: "Why I decided to share my notes publicly and how I built this personal blog using Nuxt and Markdown."
 date: "2025-10-12"
+author: doguskysilva
 categories:
   - personal
   - learning

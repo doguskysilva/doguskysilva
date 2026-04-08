@@ -3,25 +3,36 @@ export type Author = {
   name: string
   avatar: string
   description: string
+  repository?: string
   default: boolean
 }
 
-export const findAuthor = (authorId?: string): Author => {
-  const config = useAppConfig()
+export const findAuthor = (
+  authorId: string | undefined,
+  contentAuthors: Author[] = [],
+  configAuthors: Author[] = [],
+  fallbackName = 'Author',
+): Author => {
+  const sourceAuthors = contentAuthors.length > 0 ? contentAuthors : configAuthors
+  const defaultAuthor = sourceAuthors.find((author) => author.default) || sourceAuthors[0]
 
-  const defaultConfiguredAuthor = config.authors?.find((author: Author) => author.default)
-
-  const defaultAuthor: Author = {
-    username: defaultConfiguredAuthor?.username || '',
-    name: defaultConfiguredAuthor?.name || config.name || 'Author',
-    avatar: defaultConfiguredAuthor?.avatar || '',
-    description: defaultConfiguredAuthor?.description || '',
-    default: Boolean(defaultConfiguredAuthor),
+  if (authorId) {
+    return sourceAuthors.find((author) => author.username === authorId) || defaultAuthor || {
+      username: '',
+      name: fallbackName,
+      avatar: '',
+      description: '',
+      repository: '',
+      default: false,
+    }
   }
 
-  if (authorId === undefined) {
-    return defaultConfiguredAuthor || defaultAuthor
+  return defaultAuthor || {
+    username: '',
+    name: fallbackName,
+    avatar: '',
+    description: '',
+    repository: '',
+    default: false,
   }
-
-  return config.authors?.find((author: Author) => author.username === authorId) || defaultConfiguredAuthor || defaultAuthor
 }

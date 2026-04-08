@@ -5,10 +5,8 @@ categories:
   - development
   - personal
 date: 2026-04-04
+author: doguskysilva
 description: My experience migrating to Omarchy, setting up my development environment, and adjusting tools like ZSH, Neovim, and Tmux.
-draft: false
-listed: true
-nocomments: false
 tags:
   - omarchy
   - archlinux

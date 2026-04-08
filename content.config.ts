@@ -26,6 +26,15 @@ const postSchema = z.object({
   redirect_to_full_url: z.string().optional(),
 })
 
+const authorSchema = z.object({
+  username: z.string(),
+  name: z.string(),
+  avatar: z.string().optional(),
+  description: z.string().optional(),
+  repository: z.string().optional(),
+  default: z.boolean().default(false),
+})
+
 export default defineContentConfig({
   collections: {
     posts: defineCollection({
@@ -44,6 +53,11 @@ export default defineContentConfig({
         prefix: '/en',
       },
       schema: postSchema,
+    }),
+    authors: defineCollection({
+      type: 'data',
+      source: 'authors/*.yml',
+      schema: authorSchema,
     }),
   },
 })

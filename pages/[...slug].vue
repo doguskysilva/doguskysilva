@@ -25,6 +25,15 @@ type PageDoc = {
   redirect_to_full_url?: string
 }
 
+type ContentAuthor = {
+  username: string
+  name: string
+  avatar?: string
+  description?: string
+  repository?: string
+  default?: boolean
+}
+
 const route = useRoute()
 const config = useAppConfig()
 const runtimeConfig = useRuntimeConfig()
@@ -53,6 +62,11 @@ const pagePath = computed(() => toContentPath(routePath.value))
 const { data: doc } = await useAsyncData<PageDoc | null>(
   () => `page:${route.path}`,
   () => queryCollection(collectionName.value).path(pagePath.value).first(),
+)
+
+const { data: contentAuthors } = await useAsyncData<ContentAuthor[]>(
+  'authors:all',
+  () => queryCollection('authors').all() as Promise<ContentAuthor[]>,
 )
 
 if (!doc.value) {
@@ -88,8 +102,27 @@ const { data: surroundings } = await useAsyncData<SurroundingItem[]>(
 
 const siteUrl = withoutTrailingSlash(runtimeConfig.public.url || config.url)
 const canonicalUrl = computed(() => withoutTrailingSlash(joinURL(siteUrl, toPublicPath(doc.value?.path || '/'))))
-const author = findAuthor(doc.value?.author)
-const authorName = computed(() => author.name?.trim() || undefined)
+const author = computed(() => findAuthor(
+  doc.value?.author,
+  ((contentAuthors.value || []) as ContentAuthor[]).map((item) => ({
+    username: item.username,
+    name: item.name,
+    avatar: item.avatar || '',
+    description: item.description || '',
+    repository: item.repository || '',
+    default: Boolean(item.default),
+  })),
+  ((config.authors || []) as ContentAuthor[]).map((item) => ({
+    username: item.username,
+    name: item.name,
+    avatar: item.avatar || '',
+    description: item.description || '',
+    repository: '',
+    default: Boolean(item.default),
+  })),
+  config.name || 'Author',
+))
+const authorName = computed(() => author.value.name?.trim() || undefined)
 const currentLanguage = computed(() => {
   const localeEntry = locales.value.find((item) => item.code === locale.value)
   return localeEntry?.language || config.language || 'en'

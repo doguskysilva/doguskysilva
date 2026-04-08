@@ -5,6 +5,7 @@ categories:
   - pessoal
   - aprendizado
 date: 2025-10-12
+author: doguskysilva
 description: Por que decidi compartilhar minhas anotações e como construí este blog pessoal usando Nuxt e Markdown.
 tags:
   - nuxt
