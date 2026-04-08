@@ -6,10 +6,15 @@
 
 <script setup lang="ts">
 const config = useAppConfig()
+const route = useRoute()
 
-useHead({
+const currentLanguage = computed(() => {
+  return route.path.startsWith('/en') ? 'en-US' : 'pt-BR'
+})
+
+useHead(() => ({
   htmlAttrs: {
-    lang: config.language || 'en',
+    lang: currentLanguage.value.toLowerCase(),
   },
   meta: [
     {
@@ -17,14 +22,14 @@ useHead({
       content: 'nuxt-content',
     },
   ],
-})
+}))
 
 useSchemaOrg([
   defineWebSite({
     name: config.name,
     description: config.description,
     url: config.url,
-    inLanguage: config.language || 'en',
+    inLanguage: () => currentLanguage.value,
   }),
 ])
 </script>

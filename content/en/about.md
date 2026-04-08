@@ -3,8 +3,6 @@ id: b50e089a-3c18-4a2e-910f-17c88d2d8854
 title: About me
 description: A glimpse into my journey as a software engineer and the curiosity that led me to explore the world of technology and software development.
 listed: false
-categories:
-  - documentation
 ---
 
 Hello! I’m Doug — and ever since my first encounter with a computer, one question has never left my mind: **how does all of this actually work?**

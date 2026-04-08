@@ -1,12 +1,14 @@
 ---
-id: 2f9f9961-2af4-4cad-9c09-4b8ffbc49ac3-en
 title: "Omarchy: first steps"
-description: "My experience migrating to Omarchy, setting up my development environment, and adjusting tools like ZSH, Neovim, and Tmux."
-date: "2026-04-04"
 categories:
   - linux
   - development
   - personal
+date: 2026-04-04
+description: My experience migrating to Omarchy, setting up my development environment, and adjusting tools like ZSH, Neovim, and Tmux.
+draft: false
+listed: true
+nocomments: false
 tags:
   - omarchy
   - archlinux
@@ -21,7 +23,7 @@ I came across DHH's Omakub project, which is based on Ubuntu, but shortly after 
 
 ## Why Omarchy?
 
-I have always configured my computers for study and software development, keeping only what I actually use.  
+I have always configured my computers for study and software development, keeping only what I actually use. :br
 I'm a "terminal guy" - most of my day goes through CLI tools like Tmux, Neovim, Git, Docker, and other tools tied to the languages I study or use. For almost everything, I created shortcuts that speed up my workflow.
 
 Even on macOS, my basic setup included a terminal, Neovim + LazyVim, Tmux with plugins, ZSH + Oh My Zsh, Docker or Podman, Git with aliases, and more recently Starship.
@@ -30,7 +32,7 @@ Omarchy fits right in: it comes with these tools already installed and pre-confi
 
 ## Installation
 
-Omarchy can be installed in two ways: [manually](https://learn.omacom.io/2/the-omarchy-manual/96/manual-installation), by installing Arch first and then the Omarchy scripts, or by using the direct ISO.  
+Omarchy can be installed in two ways: [manually](https://learn.omacom.io/2/the-omarchy-manual/96/manual-installation), by installing Arch first and then the Omarchy scripts, or by using the direct ISO. :br
 I went with the ISO, which already comes with a default setup using BTRFS, Limine as the bootloader, and Snapper for snapshots and rollback. Since this is my personal desktop, I configured boot protection and automatic login with my user account.
 
 ## Post-install Setup
@@ -142,11 +144,11 @@ In the early versions of Omarchy, tmux was not configured and required a whole e
 
 The only change I made was to a few keyboard shortcuts:
 
-| Hotkeys           | Omarchy      | Personal      |
-| ----------------- | ------------ | ------------- |
-| Prefix            | Ctrl + Space | Ctrl + a      |
-| Vertical Pane     | Prefix + v   | Prefix + \|   |
-| Horizontal Pane   | Prefix + h   | Prefix + -    |
+| Hotkeys         | Omarchy      | Personal    |
+| --------------- | ------------ | ----------- |
+| Prefix          | Ctrl + Space | Ctrl + a    |
+| Vertical Pane   | Prefix + v   | Prefix + \| |
+| Horizontal Pane | Prefix + h   | Prefix + -  |
 
 ## Conclusion
 

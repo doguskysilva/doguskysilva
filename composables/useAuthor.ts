@@ -9,17 +9,19 @@ export type Author = {
 export const findAuthor = (authorId?: string): Author => {
   const config = useAppConfig()
 
+  const defaultConfiguredAuthor = config.authors?.find((author: Author) => author.default)
+
   const defaultAuthor: Author = {
-    username: authorId || '',
-    name: authorId || '',
-    avatar: '',
-    description: '',
-    default: false,
+    username: defaultConfiguredAuthor?.username || '',
+    name: defaultConfiguredAuthor?.name || config.name || 'Author',
+    avatar: defaultConfiguredAuthor?.avatar || '',
+    description: defaultConfiguredAuthor?.description || '',
+    default: Boolean(defaultConfiguredAuthor),
   }
 
   if (authorId === undefined) {
-    return config.authors?.find((author: Author) => author.default) || defaultAuthor
+    return defaultConfiguredAuthor || defaultAuthor
   }
 
-  return config.authors?.find((author: Author) => author.username === authorId) || defaultAuthor
+  return config.authors?.find((author: Author) => author.username === authorId) || defaultConfiguredAuthor || defaultAuthor
 }
