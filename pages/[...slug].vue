@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout :name="layoutName" :doc="doc" :surroundings="surroundings" fallback="default" />
+  <NuxtLayout :name="layoutName" :doc="doc" :surroundings="surroundings" :resolved-author="author" fallback="default" />
 </template>
 
 <script setup lang="ts">

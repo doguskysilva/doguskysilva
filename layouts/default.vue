@@ -28,6 +28,21 @@
           </NuxtLink>
         </div>
 
+        <div v-if="resolvedAuthor?.name" class="mt-8 border-t border-gray-200 pt-6 text-sm text-gray-600 dark:border-neutral-800 dark:text-gray-400">
+          <span class="font-medium text-gray-800 dark:text-gray-200">{{ authorLabel }}:</span>
+          <span class="ml-1">{{ resolvedAuthor.name }}</span>
+          <span v-if="resolvedAuthor.repository" class="ml-3">
+            <a
+              :href="resolvedAuthor.repository"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-sky-600 transition-colors hover:text-sky-500 dark:text-sky-400 dark:hover:text-sky-300"
+            >
+              {{ repositoryLabel }}
+            </a>
+          </span>
+        </div>
+
         <div v-if="hasSurroundings" class="mt-10 grid grid-cols-1 gap-4 border-t border-gray-200 pt-6 dark:border-neutral-800 md:grid-cols-2">
           <NuxtLink
             v-if="surroundings?.[0]"
@@ -72,6 +87,11 @@ type PageDoc = {
   nocomments?: boolean
 }
 
+type ResolvedAuthor = {
+  name?: string
+  repository?: string
+}
+
 const config = useAppConfig()
 const { locale } = useI18n()
 const localePath = useLocalePath()
@@ -79,12 +99,16 @@ const localePath = useLocalePath()
 const props = defineProps<{
   doc: PageDoc
   surroundings?: Array<{ path: string; title: string } | null>
+  resolvedAuthor?: ResolvedAuthor
 }>()
 
 const doc = computed(() => props.doc)
 const surroundings = computed(() => props.surroundings)
+const resolvedAuthor = computed(() => props.resolvedAuthor)
 const showToc = computed(() => config.table_of_contents !== false)
 const hasSurroundings = computed(() => Boolean(surroundings.value?.[0] || surroundings.value?.[1]))
+const authorLabel = computed(() => (locale.value === 'en' ? 'Author' : 'Autor'))
+const repositoryLabel = computed(() => (locale.value === 'en' ? 'GitHub' : 'GitHub'))
 
 function displayDate(date: string): string {
   return formatDate(`${date}T00:00:00`, locale.value === 'en' ? 'en-US' : 'pt-BR')
