@@ -1,5 +1,5 @@
 <template>
-  <NuxtLayout :name="layoutName" :doc="doc" :surroundings="surroundings" fallback="default" />
+  <NuxtLayout :name="layoutName" :doc="doc" :surroundings="surroundings" :resolved-author="author" fallback="default" />
 </template>
 
 <script setup lang="ts">
@@ -25,9 +25,19 @@ type PageDoc = {
   redirect_to_full_url?: string
 }
 
+type ContentAuthor = {
+  username: string
+  name: string
+  avatar?: string
+  description?: string
+  repository?: string
+  default?: boolean
+}
+
 const route = useRoute()
 const config = useAppConfig()
 const runtimeConfig = useRuntimeConfig()
+const { locale, locales } = useI18n()
 
 const collectionName = computed(() => (route.path.startsWith('/en') ? 'posts_en' : 'posts'))
 
@@ -52,6 +62,11 @@ const pagePath = computed(() => toContentPath(routePath.value))
 const { data: doc } = await useAsyncData<PageDoc | null>(
   () => `page:${route.path}`,
   () => queryCollection(collectionName.value).path(pagePath.value).first(),
+)
+
+const { data: contentAuthors } = await useAsyncData<ContentAuthor[]>(
+  'authors:all',
+  () => queryCollection('authors').all() as Promise<ContentAuthor[]>,
 )
 
 if (!doc.value) {
@@ -87,7 +102,31 @@ const { data: surroundings } = await useAsyncData<SurroundingItem[]>(
 
 const siteUrl = withoutTrailingSlash(runtimeConfig.public.url || config.url)
 const canonicalUrl = computed(() => withoutTrailingSlash(joinURL(siteUrl, toPublicPath(doc.value?.path || '/'))))
-const author = findAuthor(doc.value?.author)
+const author = computed(() => findAuthor(
+  doc.value?.author,
+  ((contentAuthors.value || []) as ContentAuthor[]).map((item) => ({
+    username: item.username,
+    name: item.name,
+    avatar: item.avatar || '',
+    description: item.description || '',
+    repository: item.repository || '',
+    default: Boolean(item.default),
+  })),
+  ((config.authors || []) as ContentAuthor[]).map((item) => ({
+    username: item.username,
+    name: item.name,
+    avatar: item.avatar || '',
+    description: item.description || '',
+    repository: '',
+    default: Boolean(item.default),
+  })),
+  config.name || 'Author',
+))
+const authorName = computed(() => author.value.name?.trim() || undefined)
+const currentLanguage = computed(() => {
+  const localeEntry = locales.value.find((item) => item.code === locale.value)
+  return localeEntry?.language || config.language || 'en'
+})
 
 useSeoMeta({
   title: () => doc.value?.title || config.name,
@@ -99,8 +138,8 @@ useSeoMeta({
   twitterTitle: () => doc.value?.title || config.name,
   twitterDescription: () => doc.value?.description || config.description,
   twitterCard: 'summary',
-  author: author.name,
-  articleAuthor: author.name,
+  author: () => authorName.value,
+  articleAuthor: () => authorName.value,
 })
 
 if (doc.value.cover) {
@@ -119,11 +158,32 @@ if (doc.value.date) {
 }
 
 const hreflangLinks = computed(() => {
-  return (doc.value?.alternates || []).map((item) => ({
+  const manualAlternates = (doc.value?.alternates || []).map((item) => ({
     rel: 'alternate',
     hreflang: item.hreflang,
     href: item.href.startsWith('http') ? item.href : joinURL(siteUrl, toPublicPath(item.href)),
   }))
+
+  const publicPath = toPublicPath(doc.value?.path || '/')
+  const ptHref = publicPath.startsWith('/en/')
+    ? joinURL(siteUrl, `/pt${publicPath.slice('/en'.length)}`)
+    : joinURL(siteUrl, publicPath.startsWith('/pt/') ? publicPath : '/pt')
+  const enHref = publicPath.startsWith('/pt/')
+    ? joinURL(siteUrl, `/en${publicPath.slice('/pt'.length)}`)
+    : joinURL(siteUrl, publicPath.startsWith('/en/') ? publicPath : '/en')
+
+  const automaticAlternates = [
+    { rel: 'alternate', hreflang: 'x-default', href: ptHref },
+    { rel: 'alternate', hreflang: 'pt-BR', href: ptHref },
+    { rel: 'alternate', hreflang: 'en-US', href: enHref },
+  ]
+
+  const byHreflang = new Map<string, { rel: string, hreflang: string, href: string }>()
+  for (const link of [...automaticAlternates, ...manualAlternates]) {
+    byHreflang.set(link.hreflang, link)
+  }
+
+  return [...byHreflang.values()]
 })
 
 useHead(() => ({
@@ -140,7 +200,7 @@ useSchemaOrg([
   defineWebPage({
     name: () => doc.value?.title,
     description: () => doc.value?.description,
-    inLanguage: config.language,
+    inLanguage: () => currentLanguage.value,
   }),
 ])
 </script>

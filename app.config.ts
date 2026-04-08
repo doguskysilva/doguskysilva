@@ -7,7 +7,7 @@ export default defineAppConfig({
   pagination: {
     per_page: 6,
   },
-  table_of_contents: true,
+  table_of_contents: false,
   toc: {
     showChildren: true,
   },

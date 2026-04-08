@@ -1,13 +1,12 @@
 ---
+id: 44b9ca15-2b61-484f-823e-5c0b6df677e6
 title: Hello World!
 categories:
   - pessoal
   - aprendizado
 date: 2025-10-12
+author: doguskysilva
 description: Por que decidi compartilhar minhas anotações e como construí este blog pessoal usando Nuxt e Markdown.
-draft: false
-listed: true
-nocomments: false
 tags:
   - nuxt
   - bloggrify
