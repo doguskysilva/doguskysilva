@@ -12,6 +12,9 @@
   "posts": {
     "title": "Posts"
   },
+  "post": {
+    "author": "Autor"
+  },
   "ui": {
     "search": "Buscar",
     "lightMode": "Modo claro",
