@@ -9,7 +9,6 @@ author: doguskysilva
 description: Por que decidi compartilhar minhas anotações e como construí este blog pessoal usando Nuxt e Markdown.
 tags:
   - nuxt
-  - bloggrify
   - vuejs
   - markdown
 ---
@@ -44,7 +43,7 @@ Experimentei ferramentas como [Gatsby](https://www.gatsbyjs.com/) e [Next.js](ht
 Minha escolha não teve nada a ver com benchmarks ou desempenho — foi puramente pessoal. :br
 Eu gosto do VueJS. E o Nuxt oferecia tudo o que eu precisava de forma simples e elegante.
 
-Para começar, usei o template [Bloggrify](https://bloggrify.com/), que se encaixou perfeitamente na proposta do blog. :br
+Para começar, montei uma base simples em Nuxt que se encaixou perfeitamente na proposta do blog. :br
 E, para hospedar, escolhi o [Netlify](https://www.netlify.com/), que se integra automaticamente com o GitHub. Assim, toda vez que faço uma alteração e envio para o repositório, o Netlify cuida do resto: gera o build e publica o site.
 
 ---

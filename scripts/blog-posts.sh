@@ -8,7 +8,7 @@ DEFAULT_EDITOR="${EDITOR:-vi}"
 
 usage() {
   cat <<'USAGE'
-Manage blog posts without Bloggrify CLI.
+Manage blog posts from the command line.
 
 Usage:
   blog-posts.sh new [options]

@@ -9,7 +9,6 @@ categories:
   - learning
 tags:
   - nuxt
-  - bloggrify
   - vuejs
   - markdown
 ---
@@ -47,7 +46,7 @@ However, I’ve never been much of a React fan and have always felt more comfort
 My choice had nothing to do with performance or benchmarks — it was purely personal.  
 I like VueJS. And Nuxt offered everything I needed in a simple and elegant way.
 
-To get started, I used the [Bloggrify](https://bloggrify.com) template, which fit the idea behind the blog perfectly.  
+To get started, I put together a simple Nuxt foundation that fit the idea behind the blog perfectly.  
 For hosting, I chose [Netlify](https://www.netlify.com/), which integrates seamlessly with GitHub.  
 That means every time I push a new commit, Netlify automatically builds and publishes the updated version.
 

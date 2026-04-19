@@ -15,14 +15,14 @@ npm run test       # Vitest unit tests
 
 ## Architecture
 
-This is a **Nuxt 4** personal blog (Douglas Silva / doguskysilva) deployed statically to Netlify. It uses [Bloggrify](https://bloggrify.com/) as a layer — a Nuxt-based blog framework that provides layouts, components, and content handling via `@bloggrify/core`.
+This is a **Nuxt 4** personal blog (Douglas Silva / doguskysilva). It uses Nuxt Content for markdown-driven content, local layouts/components for rendering, and bilingual routing via `@nuxtjs/i18n`.
 
 **Key design decisions:**
-- The project `extends: ['@bloggrify/core']` in `nuxt.config.ts`, meaning most of the UI/layout logic lives inside that npm package, not in this repo.
 - Content is authored as Markdown files under `content/`. Blog posts go in `content/YYYY/slug.md`; files prefixed with `.` are drafts (not published).
-- English translations live in `content/_en/` — same structure mirrored for i18n via `@nuxtjs/i18n`.
-- Site metadata, theme, navigation menu, and author info are configured in `app.config.ts`.
-- Deployment is fully automatic: push to GitHub → Netlify builds and publishes.
+- English translations live in `content/en/`, while default-locale content stays outside that subtree.
+- Site metadata, theme, navigation menu, and fallback author info are configured in `app.config.ts`.
+- Rendering is handled by local layouts in `layouts/` and local components in `components/`, with Nuxt Content collections defined in `content.config.ts`.
+- Deployment is fully automatic: GitHub Actions runs lint/test, builds a Docker image in GHCR, and triggers Dokploy on pushes to `main`.
 
 **Content frontmatter fields** (blog posts):
 - `id`, `title`, `description`, `date`, `categories`, `tags` — standard post metadata
